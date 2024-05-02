@@ -12,5 +12,5 @@
     --color-badge-valid: #29CD83;
     --color-badge-expired: #FF8383;
     --color-badge-canceled: #DEDFE5;
-    --table-header-shadow: 0px 0px 6px rgba(165,167,170,0.3);
+    --table-shadow: 0px 0px 6px rgba(165,167,170,0.3);
 }

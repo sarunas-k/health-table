@@ -1,5 +1,4 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
@@ -14,17 +13,28 @@ export default defineConfig({
     }
   },
   server: {
-    open: './dist/index.html',
+    open: './index.html',
   },
   optimizeDeps: {
-    include: ['./assets/**/*.vue']
+    include: ['./src/components/**/*.vue']
   },
   build: {
+    watch: {},
     commonjsOptions: {
-      include: ['./assets/**/*.vue']
+      include: ['./src/components/**/*.vue']
     },
-    outDir: './dist/',
-    assetsDir: './assets'
+    // outDir: './dist/',
+    // assetsDir: './assets',
+    rollupOptions: {
+      output: {
+        assetFileNames: ({name}) => {
+          if (/\.css$/.test(name ?? '')) {
+              return 'assets/css/[name][extname]';
+          }
+
+          return 'assets/[name][extname]';
+        },
+      },
+    },
   },
-  base: '/dist'
 })
