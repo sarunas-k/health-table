@@ -23,8 +23,10 @@ const props = defineProps({
 
 span {
 	font-size: var(--fs-badge);
-	border-radius: 5px;
-	padding: 0 1rem;
+	color: var(--color-badge-text);
+	font-weight: var(--fw-bold);
+	border-radius: 0.5rem;
+	padding: 0 0.8rem;
 
 	&.active,
 	&.valid {

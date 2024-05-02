@@ -19,12 +19,19 @@ export enum HealthCheckStatus {
 }
 
 export interface IHealthRecord {
-  code: HealthCheckCode;
-  dateFrom: Date;
+  title: HealthCheckTitle;
+  code: string;
+  dateFrom: string;
   status: HealthCheckStatus;
 }
 
-export enum HealthCheckCode {
+export interface IHealthRecordData {
+  code: string;
+  status: string;
+  'issue-date': string
+}
+
+export enum HealthCheckTitle {
   Emotional = "Psichinės sveikatos patikra",
   Physical = "Fizinės sveikatos patikra",
   PC = "Darbo prie kompiuterio pažyma",

@@ -1,28 +1,30 @@
-import { type IHealthRecord, HealthCheckCode, HealthCheckStatus } from "./types/HealthTableTypes.mjs";
+import { type IHealthRecord, type IHealthRecordData, HealthCheckTitle, HealthCheckStatus } from "./types/HealthTableTypes.mjs";
 
 
 class HealthRecord implements IHealthRecord {
-  code!: HealthCheckCode;
-  dateFrom!: Date;
+  code!: string;
+  dateFrom!: string;
   status!: HealthCheckStatus;
+  title!: HealthCheckTitle;
 
-  constructor(recordJson: string) {
-    if (typeof recordJson.length === "undefined") return;
+  constructor(recordJson: IHealthRecordData) {
+    if (!recordJson) return;
+    this.parseRecord(recordJson);
   }
 
-  private parseRecord(recordJson: string) {
-    const data = JSON.parse(recordJson);
+  private parseRecord(data: IHealthRecordData) {
     switch (data.code) {
-      case "0":
-        this.code = HealthCheckCode.Emotional;
+      case "0000":
+        this.title = HealthCheckTitle.Emotional;
         break;
-      case "1":
-        this.code = HealthCheckCode.Physical;
+      case "0001":
+        this.title = HealthCheckTitle.Physical;
         break;
-      case "2":
-        this.code = HealthCheckCode.PC;
+      case "0002":
+        this.title = HealthCheckTitle.PC;
         break;
     }
+    this.code = data.code;
 
     switch (data.status) {
       case "0":
@@ -36,7 +38,7 @@ class HealthRecord implements IHealthRecord {
         break;
     }
 
-    this.dateFrom = new Date(data.dateFrom);
+    this.dateFrom = data['issue-date'].slice(0, 10);
   }
 }
 

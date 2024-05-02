@@ -17,15 +17,15 @@ class User implements IUser {
 
     private parseUserData(data: string): void {
         const user = JSON.parse(data);
-        this.firstName = user.firstName;
-        this.lastName = user.lastName;
-        this.department = user.department;
-        const userStatus = user.status;
+        this.firstName = user['first-name'];
+        this.lastName = user['last-name'];
+        this.department = user['department'];
+        const userStatus = user['status'];
         if (userStatus === '1')
             this.status = UserStatus.Active;
         else if (userStatus === '0')
             this.status = UserStatus.Inactive;
-        this.jobTitle = user.jobTitle;
+        this.jobTitle = user['job-title'];
         this.healthChecks = new Array<HealthRecord>;
         for (let i = 0; i < user['health-checks'].length; i++) {
             this.healthChecks.push(new HealthRecord(user['health-checks'][i]));

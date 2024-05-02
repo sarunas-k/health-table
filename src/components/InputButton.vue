@@ -30,10 +30,10 @@ const props = defineProps({
 .button-component {
     width: 40px;
     height: 40px;
-    background-color: #FFF;
     padding: 0;
     border: 0;
     vertical-align: middle;
+    background: none;
 
     span {
         display: inline-block;

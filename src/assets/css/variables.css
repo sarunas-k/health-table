@@ -1,9 +1,13 @@
+/*
+ * Table style variables
+ */
 :root {
-    --padding-mobile-x: 1rem;
+    --padding-mobile-x: 3rem;
     --ff: 'Open Sans';
     --fs-body: 16px;
-    --fs-basic: 0.85rem;
-    --fw-bold: 600;
+    --fs-basic: 0.8rem;
+    --fs-badge: 0.7rem;
+    --fw-bold: 700;
     --color-background: #FCFCFC;
     --color-primary-green: #29CD83;
     --color-secondary-green: #EFFAF5;
