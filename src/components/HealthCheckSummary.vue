@@ -13,5 +13,6 @@ import HealthCheckTableControls from './HealthCheckTableControls.vue';
 <style scoped>
 .health-check-summary {
     width: 100%;
+	background-color: #FFFFFF;
 }
 </style>

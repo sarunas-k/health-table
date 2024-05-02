@@ -1,0 +1,141 @@
+/* Import style constants / variables */
+
+@import './variables';
+
+/* Reset default styles */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  color: var(--color-primary-text);
+  background: var(--color-background);
+  font-family: var(--ff);
+  font-size: var(--fs-body);
+  letter-spacing: -.02rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  height: 100vh;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* Main window */
+
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+main {
+  margin: var(--padding-mobile-x);
+  max-width: 100%;
+  max-height: 85%;
+  width: 63rem;
+  overflow-x: scroll;
+}
+
+@media screen and (min-width: 63rem) {
+  #app main {
+    overflow-x: hidden;
+  }
+}
+
+/* Table */
+
+table {
+  width: 100%;
+  font-size: var(--fs-basic);
+  text-align: left;
+  min-width: 60rem;
+  border-spacing: 0;
+}
+
+table td,
+table th {
+  border-bottom: 1px solid #e6e6e6;
+}
+/*
+  First and last columns have fixed position
+*/
+
+th[role=row],
+thead th:first-child {
+  position: sticky;
+  left: 0;
+  padding: .8rem;
+  background-color: #FFFFFF;
+  text-align: center;
+}
+
+thead th:last-child,
+td:last-child {
+  position: sticky;
+  right: 0;
+  padding: 0;
+  background-color: #FFFFFF;
+  text-align: center;
+}
+
+.row-head th[role=row],
+.row-head td:last-child {
+  background-color: var(--color-secondary-green);
+}
+
+.row-head td:first-of-type {
+  font-weight: var(--fw-bold);
+}
+
+/* Utility */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

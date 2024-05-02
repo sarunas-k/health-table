@@ -2,7 +2,6 @@
   "name": "health-table",
   "version": "1.0.0",
   "description": "UI component which imports and shows users data from data storage ",
-  "main": "./dist/index.html",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/sarunas-k/health-table.git"
@@ -34,6 +33,7 @@
     "eslint-plugin-vue": "^9.23.0",
     "jquery": "^3.7.1",
     "npm-run-all2": "^6.1.2",
+    "sass": "^1.76.0",
     "typescript": "~5.4.0",
     "vite": "^5.2.8",
     "vue-tsc": "^2.0.11"
