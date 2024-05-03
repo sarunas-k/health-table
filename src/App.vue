@@ -1,5 +1,9 @@
 <script setup lang="ts">
-    import HealthCheckSummary from './components/HealthCheckSummary.vue';
+import { onMounted } from 'vue';
+import HealthCheckSummary from './components/HealthCheckSummary.vue';
+import Loader from './load'
+import { useTableStore } from './stores/tableStore';
+
 </script>
 
 <template>
@@ -8,6 +12,4 @@
 	</main>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -8,15 +8,23 @@ class User implements IUser {
     status!: UserStatus;
     jobTitle!: string;
     healthChecks!: IHealthRecord[];
+    isRowChecked: boolean = false;
+    id!: string;
 
-    constructor(userJson: string) {
-        if (typeof userJson.length === 'undefined')
+    constructor(userData: string | JSON) {
+        if (!userData)
             return;
-        this.parseUserData(userJson);
+
+        this.parseUserData(userData);
     }
 
-    private parseUserData(data: string): void {
-        const user = JSON.parse(data);
+    private parseUserData(data: string | JSON): void {
+        let user;
+        if (data instanceof Object) {
+            user = data;
+        } else {
+            user = JSON.parse(data);
+        }
         this.firstName = user['first-name'];
         this.lastName = user['last-name'];
         this.department = user['department'];
@@ -24,6 +32,8 @@ class User implements IUser {
         if (userStatus === '1')
             this.status = UserStatus.Active;
         else if (userStatus === '0')
+            this.status = UserStatus.Inactive;
+        else if (userStatus === '-1')
             this.status = UserStatus.Inactive;
         this.jobTitle = user['job-title'];
         this.healthChecks = new Array<HealthRecord>;

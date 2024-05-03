@@ -15,7 +15,7 @@ defineProps({
 <template>
 	<tr class="row-head">
 		<th role="row">
-			<InputCheckbox />
+			<InputCheckbox icon="minus" :user="user" />
 		</th>
 		<td class="col-2">
 			{{ user.firstName + ' ' + user.lastName }}
@@ -34,7 +34,7 @@ defineProps({
 	</tr>
 	<tr v-for="(check, index) in user.healthChecks" :key="index">
 		<th role="row">
-			<InputCheckbox />
+			<InputCheckbox :user="user" :parentcheck="check.isRowChecked" />
 		</th>
 		<td class="col-2">
 			{{ check.title }}

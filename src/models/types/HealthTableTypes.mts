@@ -5,6 +5,8 @@ export interface IUser {
   status: UserStatus;
   jobTitle: string;
   healthChecks: IHealthRecord[];
+  isRowChecked: boolean;
+  id: string;
 }
 
 export enum UserStatus {
@@ -23,6 +25,7 @@ export interface IHealthRecord {
   code: string;
   dateFrom: string;
   status: HealthCheckStatus;
+  isRowChecked: boolean;
 }
 
 export interface IHealthRecordData {

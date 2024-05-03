@@ -3,6 +3,8 @@ import './assets/css/main.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
+import { useTableStore } from './stores/tableStore'
+import Loader from './load'
 
 const app = createApp(App)
 
@@ -21,3 +23,5 @@ app.config.globalProperties.iconsPath = 'http://localhost:5173/assets/icons';
 app.use(createPinia())
 
 app.mount('#app')
+
+new Loader(useTableStore()).load('http://localhost:5173/health-db/db.json');
