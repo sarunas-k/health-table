@@ -139,3 +139,41 @@ td:last-child {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+tr.row-head {
+	background-color: var(--color-secondary-green);
+}
+
+.checkbox-component {
+  display: inline-block;
+  border: 1px solid #9a9a9a;
+  height: 17px;
+  width: 17px;
+  border-radius: 3px;
+  background-color: #FFF;
+  vertical-align: middle;
+}
+
+.checkbox-component label {
+  height: 17px;
+  width: 17px;
+  display: inline-block;
+}
+
+.checkbox-component.active {
+  background-color: var(--color-primary-green);
+  border: 0;
+}
+
+.checkbox-component.active label {
+  background-color: #FFF;
+}
+
+.checkbox-component.all {
+  background-color: var(--color-primary-green) !important;
+  border: 0;
+}
+
+.checkbox-component.all label {
+  background-color: #FFF !important;
+}

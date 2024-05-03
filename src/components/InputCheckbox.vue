@@ -36,16 +36,11 @@ const parentOrTableHeaderChecked = computed(() => isChecked.value || store.isHea
 </script>
 
 <template>
-	<span
-		class="checkbox-component"
-		:class="{ all: parentOrTableHeaderChecked }"
-	>
+	<span class="checkbox-component" :class="{ all: parentOrTableHeaderChecked }">
 		<label :style="{ maskImage: parentOrTableHeaderChecked ? `url(${iconsPath}/${icon}.svg)` : '' }">
 			<input
-				type="checkbox"
-				value="checkbox-record"
-				v-model="isChecked"
-				class="visually-hidden"
+				type="checkbox" value="checkbox-record"
+				v-model="isChecked" class="visually-hidden"
 				@change="setChecked"
 			/>
 		</label>
@@ -54,6 +49,7 @@ const parentOrTableHeaderChecked = computed(() => isChecked.value || store.isHea
 </template>
 
 <style scoped lang="scss">
+
 .checkbox-component {
     display: inline-block;
     border: 1px solid #9a9a9a;

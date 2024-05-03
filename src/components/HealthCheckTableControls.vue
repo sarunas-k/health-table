@@ -3,7 +3,7 @@
 
 <template>
 	<div class="health-check-table-controls">
-		Controls
+		-- Controls --
 	</div>
 </template>
 

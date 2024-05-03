@@ -16,12 +16,12 @@ declare module 'vue' {
     }
 }
 
-app.config.globalProperties.rootPath = 'http://localhost:5173';
-app.config.globalProperties.assetsPath = 'http://localhost:5173/assets';
-app.config.globalProperties.iconsPath = 'http://localhost:5173/assets/icons';
+app.config.globalProperties.rootPath = '/';
+app.config.globalProperties.assetsPath = './assets';
+app.config.globalProperties.iconsPath = './assets/icons';
 
 app.use(createPinia())
 
 app.mount('#app')
 
-new Loader(useTableStore()).load('http://localhost:5173/health-db/db.json');
+new Loader(useTableStore()).load('./health-db/db.json');

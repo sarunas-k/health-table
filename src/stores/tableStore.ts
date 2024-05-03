@@ -1,12 +1,11 @@
 import { defineStore } from 'pinia';
 import User from '@/models/User';
 import { ref } from 'vue';
-import type HealthRecord from '@/models/HealthRecord';
 import type { IHealthRecord, IUser } from '@/models/types/HealthTableTypes.mjs';
 
 export const useTableStore = defineStore('users', () => {
     const allUsers: any = ref([]);
-    const perPage = ref(25);
+    const perPage = ref(5);
     const isHeadChecked = ref(false);
 
     function createUser(data: string | JSON) {
@@ -46,8 +45,6 @@ export const useTableStore = defineStore('users', () => {
             return;
         perPage.value = k;
     }
-
-
 
     return {
         createUser,
