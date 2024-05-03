@@ -1,7 +1,5 @@
 <script setup lang="ts">
 
-import { UserStatus, HealthCheckStatus, BadgeType } from '@/models/types/HealthTableTypes.mjs';
-import { computed } from 'vue';
 const props = defineProps({
     badge: {
 		type: String,
