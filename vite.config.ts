@@ -23,7 +23,7 @@ export default defineConfig({
     commonjsOptions: {
       include: ['./src/components/**/*.vue']
     },
-    // outDir: './dist/',
+    // outDir: './',
     // assetsDir: './assets',
     rollupOptions: {
       output: {
