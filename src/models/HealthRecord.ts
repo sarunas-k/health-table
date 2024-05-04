@@ -1,20 +1,20 @@
-import { type IHealthRecord, type IHealthRecordData, HealthCheckTitle, HealthCheckStatus } from "./types/HealthTableTypes.mjs";
+import { type IHealthRecord, HealthCheckTitle, HealthCheckStatus } from "./types/HealthTableTypes.mjs";
 
 
 class HealthRecord implements IHealthRecord {
   code!: string;
-  dateFrom!: string;
+  dateTo!: string;
   status!: HealthCheckStatus;
   title!: HealthCheckTitle;
   isRowChecked: boolean = false;
 
-  constructor(recordJson: IHealthRecordData) {
-    if (!recordJson) return;
-    this.parseRecord(recordJson);
+  constructor(code: string, status: string, expiration: string) {
+    if (!code || !status || !expiration) return;
+    this.formatRecord(code, status, expiration);
   }
 
-  private parseRecord(data: IHealthRecordData) {
-    switch (data.code) {
+  private formatRecord(code: string, status: string, expiration: string) {
+    switch (code) {
       case "0000":
         this.title = HealthCheckTitle.Emotional;
         break;
@@ -24,22 +24,23 @@ class HealthRecord implements IHealthRecord {
       case "0002":
         this.title = HealthCheckTitle.PC;
         break;
-    }
-    this.code = data.code;
-
-    switch (data.status) {
-      case "0":
-        this.status = HealthCheckStatus.Expired;
-        break;
-      case "1":
-        this.status = HealthCheckStatus.Active;
-        break;
-      case "-1":
-        this.status = HealthCheckStatus.Cancelled;
+      default:
+        this.title = <HealthCheckTitle>'Unknown';
         break;
     }
+    this.code = code;
 
-    this.dateFrom = data['issue-date'].slice(0, 10);
+    if (status.indexOf('0') !== -1) {
+      this.status = HealthCheckStatus.Expired;
+    } else if (status.indexOf('-1') !== -1) {
+      this.status = HealthCheckStatus.Cancelled;
+    } else if (status.indexOf('1') !== -1) {
+      this.status = HealthCheckStatus.Active;
+    } else {
+      this.status = <HealthCheckStatus>'Unknown';
+    }
+
+    this.dateTo = expiration ? expiration : 'Unknown';
   }
 }
 

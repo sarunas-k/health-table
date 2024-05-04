@@ -1,3 +1,5 @@
+import type { Store } from "pinia";
+
 export interface IUser {
   firstName: string;
   lastName: string;
@@ -7,6 +9,39 @@ export interface IUser {
   healthChecks: IHealthRecord[];
   isRowChecked: boolean;
   id: string;
+}
+
+export type IUserRawData = {
+  [id: string]: string;
+  firstName: string;
+  lastName: string;
+  status: string;
+  jobTitle: string;
+  department: string;
+  checkCode_1: string;
+  expiration_1: string;
+  checkStatus_1: string;
+  checkCode_2: string;
+  expiration_2: string;
+  checkStatus_2: string;
+  checkCode_3: string;
+  expiration_3: string;
+  checkStatus_3: string;
+};
+
+export interface ILoader {
+  store: IUserStore;
+}
+
+export interface IUserStore {
+  createUser: Function,
+  addUser: Function,
+  getUsers: (limit?: number, page?: number) => IUser[],
+  setUsersPerPage: Function,
+  setChecked: Function,
+  isHeadChecked: boolean,
+  setCheckedChildren: Function,
+  setCheckedAll: Function
 }
 
 export enum UserStatus {
@@ -23,15 +58,9 @@ export enum HealthCheckStatus {
 export interface IHealthRecord {
   title: HealthCheckTitle;
   code: string;
-  dateFrom: string;
+  dateTo: string;
   status: HealthCheckStatus;
   isRowChecked: boolean;
-}
-
-export interface IHealthRecordData {
-  code: string;
-  status: string;
-  'issue-date': string
 }
 
 export enum HealthCheckTitle {
@@ -41,6 +70,6 @@ export enum HealthCheckTitle {
 }
 
 export enum BadgeType {
-  UserStatus = 'user',
-  CheckStatus = 'check'
+  UserStatus = "user",
+  CheckStatus = "check",
 }
