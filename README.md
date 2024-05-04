@@ -9,4 +9,5 @@
 3. (Un)check checkbox groups
 4. Flat data in row as input
 5. Responds to screen size
+6. Show popup when "more" is clicked
 ```
