@@ -1,44 +1,74 @@
-import type { IUser } from "@/models/types/HealthTableTypes.mjs";
-import type { Store } from "pinia";
-import { useTableStore } from "@/stores/tableStore";
+import type {
+  IUserRawData,
+  ILoader,
+  IUserStore,
+} from "@/models/types/HealthTableTypes.mjs";
+import User from "./models/User";
 
 /* Class for downloading data from storage
  *  and initializing table content
  *
- * @param store : Store<"users">
+ * @param store : IUserStore
  *
  */
 
-export default class Loader {
-  store: Store<"users"> = useTableStore();
+export default class Loader implements ILoader {
+  store: IUserStore;
 
-  constructor(store: Store<"users">) {
+  constructor(store: IUserStore) {
     this.store = store;
   }
 
-  async load(path: string) {
-    console.log(path);
+  // Get user data from specified file. Format of 15 columns, each row describes one entry
+  load(path: string) {
+    const request = new Request(path);
     try {
-      const request: Request = new Request(path);
-      fetch(request)
-        .then((response: Response) => {
-          return response.json();
-        })
-        .then((data) => this.setUsersData(data.records))
-        .finally(() => console.log('Done'));
+    fetch(request)
+      .then((response) => response.text())
+      .then((value) => {
+        const lines = value.split("\n");
+
+        lines
+          .slice(0, lines.length - 2)
+          .forEach((line, index) => this.parseUser(line, index));
+      })
     } catch {
-      throw new Error("Couldn't load the file. Check if URL is correct.");
+      throw new Error('Couldn\'t get the data with user information.');
     }
   }
 
-  setUsersData(usersJson: any): void {
-    if (!usersJson) return;
+  // Create user object by using data from single line
+  parseUser(line: string, index: number) {
+    if (index === 0) return;
+    const fields = line.split(",");
+    if (fields.length !== 15)
+      throw Error(
+        "Unreadable data format found on line " + index + ". 15 words required."
+      );
 
-    for (let i = 0; i < usersJson.length; i++) {
-        this.store.createUser(usersJson[i]);
-    }
-    usersJson.forEach( (element: IUser) => {
-      this.store.createUser(element);
+    const fieldNames: string[] = [
+      "id",
+      "firstName",
+      "lastName",
+      "status",
+      "jobTitle",
+      "department",
+      "checkCode_1",
+      "expiration_1",
+      "checkStatus_1",
+      "checkCode_2",
+      "expiration_2",
+      "checkStatus_2",
+      "checkCode_3",
+      "expiration_3",
+      "checkStatus_3",
+    ];
+
+    const userData: IUserRawData = <IUserRawData>{};
+    fields.map(function (field, index) {
+      const key = fieldNames[index];
+      userData[key] = field;
     });
+    this.store.addUser(new User(userData));
   }
 }

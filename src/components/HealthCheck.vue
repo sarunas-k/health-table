@@ -40,7 +40,7 @@ defineProps({
 			{{ check.title }}
 		</td>
 		<td>{{ check.code }}</td>
-		<td>{{ check.dateFrom }}</td>
+		<td>{{ check.dateTo }}</td>
 		<td><StatusBadge badge="check" :value="check.status" /></td>
 		<td></td>
 		<td></td>

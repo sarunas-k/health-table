@@ -1,20 +1,20 @@
 import { defineStore } from 'pinia';
 import User from '@/models/User';
 import { ref } from 'vue';
-import type { IHealthRecord, IUser } from '@/models/types/HealthTableTypes.mjs';
+import type { IHealthRecord, IUser, IUserStore } from '@/models/types/HealthTableTypes.mjs';
 
 export const useTableStore = defineStore('users', () => {
     const allUsers: any = ref([]);
     const perPage = ref(5);
     const isHeadChecked = ref(false);
 
-    function createUser(data: string | JSON) {
-        if (!data)
+    function addUser(user: User) {
+        if (!user)
             return;
-        allUsers.value.push(new User(data));
+        allUsers.value.push(user);
     }
 
-    function getUsers(limit: number = perPage.value, page: number = 1): Array<User> {
+    function getUsers(limit: number = perPage.value, page: number = 1): IUser[] {
         if (allUsers.value.length <= limit || allUsers.value.length <= page * limit)
             return allUsers.value;
 
@@ -47,7 +47,7 @@ export const useTableStore = defineStore('users', () => {
     }
 
     return {
-        createUser,
+        addUser,
         getUsers,
         setUsersPerPage,
         setChecked,
