@@ -36,69 +36,100 @@ function onParentCheck(isParentChecked: boolean) {
 let isClosed = ref(false);
 
 function toggle(event: MouseEvent) {
-	isClosed.value = !isClosed.value;
-	const target = event.currentTarget;
-	console.log(isClosed);
-	//const id = target.getAttribute('id');
+	if (typeof event.target.localName !== 'undefined' && event.target.localName !== 'label' && event.target.localName !== 'input') {
+		isClosed.value = !isClosed.value;
+		const target = event.currentTarget.nextSibling;
+		let height = !isClosed.value ? 0 : target.scrollHeight;
+		let iteration = target.scrollHeight / 100;
+		for (let i = 0; i < 100; i++) {
+			setTimeout(() => {
+				height = !isClosed.value ? height + iteration : height - iteration;
+				target.style.height = Math.floor(height) + 'px';
+			}, 100);
+		}
+	}
 }
 
 const userIdClass = computed(() => 'userid-' + props.user.id);
 </script>
 
 <template>
-	<tr class="row-head" :class="userIdClass" @click="toggle">
-		<th role="row">
+	<div class="row-head" :class="userIdClass" @click="toggle">
+		<div role="row" class="col">
 			<InputCheckbox
 				:type="CheckboxType.Parent" :icon="allChecksChecked ? 'minus' : 'checkmark'"
 				:user="user"
 				v-model:checked="checkboxes.parent"
 				@update:model-value="onParentCheck"
 			/>
-		</th>
-		<td class="col-2">
-			{{ user.firstName + ' ' + user.lastName + ' (' + validChecks + '/3)' }}
-		</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>{{ user.department }}</td>
-		<td>
+		</div>
+		<div class="col-2 col">
+			<InputButton :icon="isClosed ? 'down' : 'up'" :callback="() => console.log('Clicked on user row')" />{{ user.firstName + ' ' + user.lastName + ' (' + validChecks + '/3)' }}
+		</div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div class="col">
+			{{ user.department }}
+		</div>
+		<div class="col">
 			<StatusBadge :value="user.status" />
-		</td>
-		<td>{{ user.jobTitle }}</td>
-		<td>
+		</div>
+		<div class="col">
+			{{ user.jobTitle }}
+		</div>
+		<div class="col">
 			<InputButton icon="more" :callback="() => console.log('More button clicked')" />
-		</td>
-	</tr>
-	<tr v-for="(check, index) in user.healthChecks" :key="index" :class="{ 'hidden': isClosed }">
-		<th role="row">
-			<InputCheckbox
-				:type="CheckboxType.Child" :user="user"
-				v-model="checkboxes.checks[index]"
-			/>
-		</th>
-		<td class="col-2">
-			{{ check.title }}
-		</td>
-		<td>{{ check.code }}</td>
-		<td>{{ check.dateTo }}</td>
-		<td>
-			<StatusBadge :value="check.status" />
-		</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>
-			<InputButton icon="more" :callback="() => console.log('More button click')" />
-		</td>
-	</tr>
+		</div>
+	</div>
+	<div :class="{ 'opened': !isClosed }" class="checks">
+		<div v-for="(check, index) in user.healthChecks" :key="index" :class="userIdClass" class="row">
+			<div role="row" class="col">
+				<InputCheckbox
+					:type="CheckboxType.Child" :user="user"
+					v-model="checkboxes.checks[index]"
+				/>
+			</div>
+			<div class="col col-2">
+				{{ check.title }}
+			</div>
+			<div class="col">
+				{{ check.code }}
+			</div>
+			<div class="col">
+				{{ check.dateTo }}
+			</div>
+			<div class="col">
+				<StatusBadge :value="check.status" />
+			</div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div class="col">
+				<InputButton icon="more" :callback="() => console.log('More button click')" />
+			</div>
+		</div>
+	</div>
 </template>
 
 <style scoped>
-tr.row-head {
-	background-color: var(--color-secondary-green);
-}
 .hidden {
-	display: none;
+	position: relative;
+	opacity: 0;
 }
+.row-head, .row {
+	display: grid;
+	grid-template-columns: 1fr 5fr 1fr 2fr 2fr 3fr 2fr 2fr 1fr;
+	grid-template-rows: subgrid;
+}
+.row-head .col, .row .col {
+	display: flex;
+    align-items: center;
+}
+div.checks {
+    overflow: hidden;
+}
+/* div.checks.opened {
+	height: auto;
+} */
 </style>

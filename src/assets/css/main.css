@@ -81,7 +81,7 @@ main {
 
 /* Table */
 
-table {
+.table {
   width: 100%;
   font-size: var(--fs-basic);
   text-align: left;
@@ -89,16 +89,16 @@ table {
   border-spacing: 0;
 }
 
-table td,
-table th {
+.table .row,
+.table .row-head {
   border-bottom: 1px solid #e6e6e6;
 }
 /*
   First and last columns have fixed position
 */
 
-th[role=row],
-thead th:first-child {
+div[role=row],
+header div:first-child {
   position: sticky;
   left: 0;
   padding: .8rem;
@@ -106,8 +106,9 @@ thead th:first-child {
   text-align: center;
 }
 
-thead th:last-child,
-td:last-child {
+header div:last-child,
+.row div:last-child,
+.row-head div:last-child {
   position: sticky;
   right: 0;
   padding: 0;
@@ -115,12 +116,12 @@ td:last-child {
   text-align: center;
 }
 
-.row-head th[role=row],
-.row-head td:last-child {
+.row-head div[role=row],
+.row-head div:last-child {
   background-color: var(--color-secondary-green);
 }
 
-.row-head td:first-of-type {
+.row-head div:nth-child(2) {
   font-weight: var(--fw-bold);
 }
 
@@ -140,7 +141,7 @@ td:last-child {
   overflow: hidden;
 }
 
-tr.row-head {
+div.row-head {
 	background-color: var(--color-secondary-green);
 }
 
