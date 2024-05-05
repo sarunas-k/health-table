@@ -1,18 +1,23 @@
 <script setup lang="ts">
 import HealthCheck from './HealthCheck.vue';
 import InputCheckbox from './InputCheckbox.vue';
+import { CheckboxType } from '@/models/types/HealthTableTypes.mjs';
 import InputButton from './InputButton.vue';
-import User from '../models/User';
 import { useTableStore } from '@/stores/tableStore';
 
 const store = useTableStore();
+const users = store.getUsers();
+
+function onHeaderCheck(value: boolean) {
+	store.isHeadChecked = value;
+}
 </script>
 
 <template>
 	<table class="health-check-table">
 		<thead>
 			<th role="col">
-				<InputCheckbox icon="minus" />
+				<InputCheckbox :type="CheckboxType.Main" icon="minus" @update:model-value="onHeaderCheck" />
 			</th>
 			<th class="col-2" role="col">
 				Full name / Health check
@@ -39,8 +44,8 @@ const store = useTableStore();
 				<InputButton icon="refresh" :callback="() => console.log('Refresh clicked')" />
 			</th>
 		</thead>
-		<tbody>
-			<HealthCheck v-for="(user, index) in useTableStore().getUsers()" :user="user" :key="index" />
+		<tbody v-if="users.length">
+			<HealthCheck v-for="(user, index) in users" :user="user" :key="index" />
 		</tbody>
 	</table>
 </template>

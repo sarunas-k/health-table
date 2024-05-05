@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import User from '@/models/User';
 import { useTableStore } from '@/stores/tableStore';
-import { computed, ref } from 'vue';
-const props = defineProps({
+
+defineProps({
+    type: {
+        type: Number,
+        required: true
+    },
     icon: {
         type: String,
         required: false,
@@ -13,35 +17,30 @@ const props = defineProps({
         required: false,
         default: null
     },
-    parentcheck: {
+    modelValue: {
         type: Boolean,
-        required: false
+        default: false
+    },
+    checked: {
+        type: Boolean,
+        default: false
     }
 });
 const store = useTableStore();
-const isChecked = ref(false);
-function setChecked() {
-    if (props.user && props.icon === 'checkmark')
-        store.setChecked(props.user.id, isChecked.value);
-    else if (props.user && props.icon === 'minus')
-        store.setCheckedChildren(props.user, isChecked.value);
-    else {
-        store.isHeadChecked = isChecked.value;
-        store.setCheckedAll(isChecked.value);
-    }
 
+const refToThisCheckbox = defineModel();
+const model = defineModel('checked');
 
-}
-const parentOrTableHeaderChecked = computed(() => isChecked.value || store.isHeadChecked || props.parentcheck);
 </script>
 
 <template>
-	<span class="checkbox-component" :class="{ all: parentOrTableHeaderChecked }">
-		<label :style="{ maskImage: parentOrTableHeaderChecked ? `url(${iconsPath}/${icon}.svg)` : '' }">
+	<span class="checkbox-component" :class="{ all: refToThisCheckbox || store.isHeadChecked }">
+		<label :style="{ maskImage: refToThisCheckbox || store.isHeadChecked? `url(${iconsPath}/${icon}.svg)` : '' }">
 			<input
-				type="checkbox" value="checkbox-record"
-				v-model="isChecked" class="visually-hidden"
-				@change="setChecked"
+				name="checkbox-name"
+				type="checkbox"
+				v-model="refToThisCheckbox" class="visually-hidden"
+				:value="model"
 			/>
 		</label>
 
