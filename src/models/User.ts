@@ -20,6 +20,7 @@ class User implements IUser {
 
     // Init user data fields
     private parseUserData(user: IUserRawData): void {
+        this.id = user['id'];
         this.firstName = user['firstName'];
         this.lastName = user['lastName'];
         this.department = user['department'];

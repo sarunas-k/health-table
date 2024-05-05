@@ -1,5 +1,3 @@
-import type { Store } from "pinia";
-
 export interface IUser {
   firstName: string;
   lastName: string;
@@ -63,6 +61,15 @@ export interface IHealthRecord {
   isRowChecked: boolean;
 }
 
+export type IRecordCheckboxes = {
+  parent: boolean,
+  checks: [
+    boolean,
+    boolean,
+    boolean
+  ]
+}
+
 export enum HealthCheckTitle {
   Emotional = "Psichinės sveikatos patikra",
   Physical = "Fizinės sveikatos patikra",
@@ -72,4 +79,10 @@ export enum HealthCheckTitle {
 export enum BadgeType {
   UserStatus = "user",
   CheckStatus = "check",
+}
+
+export enum CheckboxType {
+  Main,
+  Parent,
+  Child
 }

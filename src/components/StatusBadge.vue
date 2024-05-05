@@ -1,10 +1,6 @@
 <script setup lang="ts">
 
 const props = defineProps({
-    badge: {
-		type: String,
-		required: true
-	},
 	value: {
 		type: String,
 		required: true
