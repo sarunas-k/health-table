@@ -18,7 +18,6 @@ env.d.ts
 package-lock.json
 tsconfig.*
 .eslintrc.cjs
-health-db
 
 /cypress/videos/
 /cypress/screenshots/
