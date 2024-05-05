@@ -14,44 +14,55 @@ function onHeaderCheck(value: boolean) {
 </script>
 
 <template>
-	<table class="health-check-table">
-		<thead>
-			<th role="col">
+	<div class="health-check-table table">
+		<header>
+			<div role="col">
 				<InputCheckbox :type="CheckboxType.Main" icon="minus" @update:model-value="onHeaderCheck" />
-			</th>
-			<th class="col-2" role="col">
+			</div>
+			<div class="col-2" role="col">
 				Full name / Health check
-			</th>
-			<th role="col">
+			</div>
+			<div role="col">
 				Code
-			</th>
-			<th role="col">
+			</div>
+			<div role="col">
 				Expiration
-			</th>
-			<th role="col">
+			</div>
+			<div role="col">
 				Status
-			</th>
-			<th role="col">
+			</div>
+			<div role="col">
 				Department
-			</th>
-			<th role="col">
+			</div>
+			<div role="col">
 				User status
-			</th>
-			<th role="col">
+			</div>
+			<div role="col">
 				Job title
-			</th>
-			<th role="col">
+			</div>
+			<div role="col">
 				<InputButton icon="refresh" :callback="() => console.log('Refresh clicked')" />
-			</th>
-		</thead>
-		<tbody v-if="users.length">
-			<HealthCheck v-for="(user, index) in users" :user="user" :key="index" />
-		</tbody>
-	</table>
+			</div>
+		</header>
+		<HealthCheck v-for="(user, index) in users" :user="user" :key="index" />
+	</div>
 </template>
 
 <style>
-thead {
+header {
     box-shadow: var(--table-shadow);
+	display: grid;
+	grid-template-columns: 1fr 5fr 1fr 2fr 2fr 3fr 2fr 2fr 1fr;
+	grid-template-rows: subgrid;
+	font-weight: var(--fw-bold);
+}
+.table {
+	display: grid;
+	grid-template-rows: auto repeat(25, auto auto);
+	grid-template-columns: 1fr;
+}
+div[role=col] {
+	display: flex;
+	align-items: center;
 }
 </style>
