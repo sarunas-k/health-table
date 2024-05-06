@@ -17,7 +17,7 @@ const checkboxes = ref({ parent: false, checks: [ false, false, false] });
 
 // True, if user's every health check is checked
 let allChecksChecked = computed(() => !checkboxes.value.checks.includes(false));
-
+let atLeastOneChecked = computed(() => checkboxes.value.checks.includes(true));
 const validChecks = computed(() => props.user.healthChecks.filter((check) => check.status === HealthCheckStatus.Active).length);
 
 // Change all checkboxes of that user after clicking on checkbox
@@ -31,6 +31,13 @@ function onParentCheck(isParentChecked: boolean) {
 			isParentChecked,
 			isParentChecked]
 	}
+}
+
+function onChildCheck(isChecked: boolean) {
+	if (atLeastOneChecked.value)
+		checkboxes.value.parent = true;
+	else
+		checkboxes.value.parent = false;
 }
 
 let isClosed = ref(false);
@@ -59,8 +66,8 @@ const userIdClass = computed(() => 'userid-' + props.user.id);
 			<InputCheckbox
 				:type="CheckboxType.Parent" :icon="allChecksChecked ? 'minus' : 'checkmark'"
 				:user="user"
-				v-model:checked="checkboxes.parent"
 				@update:model-value="onParentCheck"
+				v-model="checkboxes.parent"
 			/>
 		</div>
 		<div class="col-2 col">
@@ -88,6 +95,7 @@ const userIdClass = computed(() => 'userid-' + props.user.id);
 				<InputCheckbox
 					:type="CheckboxType.Child" :user="user"
 					v-model="checkboxes.checks[index]"
+					@update:model-value="onChildCheck"
 				/>
 			</div>
 			<div class="col col-2">
