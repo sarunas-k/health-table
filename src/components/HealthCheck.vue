@@ -82,7 +82,7 @@ const userIdClass = computed(() => 'userid-' + props.user.id);
 			<InputButton icon="more" :callback="() => console.log('More button clicked')" />
 		</div>
 	</div>
-	<div :class="{ 'opened': !isClosed }" class="checks">
+	<div class="checks">
 		<div v-for="(check, index) in user.healthChecks" :key="index" :class="userIdClass" class="row">
 			<div role="row" class="col">
 				<InputCheckbox
@@ -117,6 +117,9 @@ const userIdClass = computed(() => 'userid-' + props.user.id);
 	position: relative;
 	opacity: 0;
 }
+.row-head div[role=row] {
+	z-index: 10;
+}
 .row-head, .row {
 	display: grid;
 	grid-template-columns: 1fr 5fr 1fr 2fr 2fr 3fr 2fr 2fr 1fr;
@@ -126,10 +129,7 @@ const userIdClass = computed(() => 'userid-' + props.user.id);
 	display: flex;
     align-items: center;
 }
-div.checks {
-    overflow: hidden;
+.checks {
+	overflow: clip;
 }
-/* div.checks.opened {
-	height: auto;
-} */
 </style>
