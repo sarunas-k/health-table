@@ -10,4 +10,5 @@
 4. Flat data in row as input
 5. Responds to screen size
 6. Show popup when "more" is clicked
+7. First and last columns stay fixed to sides
 ```
