@@ -20,16 +20,11 @@ defineProps({
     modelValue: {
         type: Boolean,
         default: false
-    },
-    checked: {
-        type: Boolean,
-        default: false
     }
 });
 const store = useTableStore();
 
 const refToThisCheckbox = defineModel();
-const model = defineModel('checked');
 
 </script>
 
@@ -40,7 +35,6 @@ const model = defineModel('checked');
 				name="checkbox-name"
 				type="checkbox"
 				v-model="refToThisCheckbox" class="visually-hidden"
-				:value="model"
 			/>
 		</label>
 
