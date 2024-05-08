@@ -1,15 +1,18 @@
 <script setup lang="ts">
 import HealthCheck from './HealthCheck.vue';
 import InputCheckbox from './InputCheckbox.vue';
-import { CheckboxType } from '@/models/types/HealthTableTypes.mjs';
+import { CheckboxType, type IUser } from '@/models/types/HealthTableTypes.mjs';
 import InputButton from './InputButton.vue';
 import { useTableStore } from '@/stores/tableStore';
+import { ref } from 'vue';
 
 const store = useTableStore();
-const users = store.getUsers();
-
+const users = ref(store.allUsers);
+const checkboxStates = ref(store.checkboxStates);
+const usersGroup = ref(store.getUsers());
 function onHeaderCheck(value: boolean) {
-	store.isHeadChecked = value;
+	for (let i = 0; i < users.value.length; i++)
+		checkboxStates.value[users.value[i].id] = { parent: value, checks: [ value, value, value ] };
 }
 </script>
 
@@ -17,7 +20,7 @@ function onHeaderCheck(value: boolean) {
 	<div class="health-check-table table">
 		<header>
 			<div role="col">
-				<InputCheckbox :type="CheckboxType.Main" icon="minus" @update:model-value="onHeaderCheck" />
+				<InputCheckbox :type="CheckboxType.Main" :icon="store && store.allChecked ? 'checkmark' : 'minus'" v-model="store.isHeadChecked" @update:model-value="onHeaderCheck" />
 			</div>
 			<div class="col-2" role="col">
 				Full name / Health check
@@ -44,7 +47,7 @@ function onHeaderCheck(value: boolean) {
 				<InputButton icon="refresh" :callback="() => console.log('Refresh clicked')" />
 			</div>
 		</header>
-		<HealthCheck v-for="(user, index) in users" :user="user" :key="index" />
+		<HealthCheck v-for="(user, index) in usersGroup" :user="user as any" :key="index" />
 	</div>
 </template>
 

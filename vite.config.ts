@@ -1,13 +1,11 @@
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
-import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
-    nodePolyfills()
+    vue()
   ],
   resolve: {
     alias: {
@@ -25,13 +23,13 @@ export default defineConfig({
     commonjsOptions: {
       include: ['./src/components/**/*.vue']
     },
-    outDir: './dist',
-    // assetsDir: './assets',
+    outDir: 'dist/',
+    // assetsDir: './assets/',
     rollupOptions: {
       output: {
         assetFileNames: ({name}) => {
           if (/\.css$/.test(name ?? '')) {
-              return 'assets/css/[name][extname]';
+              return 'assets/css/[name]-[hash].css';
           }
 
           return 'assets/[name][extname]';

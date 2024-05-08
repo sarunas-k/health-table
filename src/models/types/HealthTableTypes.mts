@@ -1,3 +1,6 @@
+import type { StoreDefinition } from "pinia";
+import type { Ref } from "vue";
+
 export interface IUser {
   firstName: string;
   lastName: string;
@@ -5,8 +8,7 @@ export interface IUser {
   status: UserStatus;
   jobTitle: string;
   healthChecks: IHealthRecord[];
-  isRowChecked: boolean;
-  id: string;
+  id: number;
 }
 
 export type IUserRawData = {
@@ -27,19 +29,25 @@ export type IUserRawData = {
   checkStatus_3: string;
 };
 
-export interface ILoader {
+export interface IHealthTableLoader {
   store: IUserStore;
+  count?: number;
+  load: (path: string) => void;
+  parseUser: (line: string, index: number) => void;
+  parseUsers: (lines: string[]) => void;
 }
 
-export interface IUserStore {
-  createUser: Function,
-  addUser: Function,
-  getUsers: (limit?: number, page?: number) => IUser[],
-  setUsersPerPage: Function,
-  setChecked: Function,
-  isHeadChecked: boolean,
-  setCheckedChildren: Function,
-  setCheckedAll: Function
+export interface IUserStore extends StoreDefinition<'users'> {
+  addUser: (user: IUser) => void,
+  getUsers: (limit?: number, page?: number) => Ref<IUser[]>,
+  setUsersPerPage: (k: number) => void,
+  isHeadChecked: Ref<boolean>,
+  isLoaded: Ref<boolean>,
+  allUsers: Ref<Array<IUser>>,
+  checkboxStates: Ref<Array<IRecordCheckboxes>>,
+  atLeastOneChecked: Ref<boolean>,
+  allChecked: Ref<boolean>,
+  updateHeadCheckbox: () => void
 }
 
 export enum UserStatus {
@@ -58,10 +66,9 @@ export interface IHealthRecord {
   code: string;
   dateTo: string;
   status: HealthCheckStatus;
-  isRowChecked: boolean;
 }
 
-export type IRecordCheckboxes = {
+export interface IRecordCheckboxes {
   parent: boolean,
   checks: [
     boolean,

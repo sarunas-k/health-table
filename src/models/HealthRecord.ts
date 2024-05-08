@@ -6,7 +6,6 @@ class HealthRecord implements IHealthRecord {
   dateTo!: string;
   status!: HealthCheckStatus;
   title!: HealthCheckTitle;
-  isRowChecked: boolean = false;
 
   constructor(code: string, status: string, expiration: string) {
     if (!code || !status || !expiration) return;
