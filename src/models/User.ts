@@ -8,8 +8,7 @@ class User implements IUser {
     status!: UserStatus;
     jobTitle!: string;
     healthChecks!: IHealthRecord[];
-    isRowChecked: boolean = false;
-    id!: string;
+    id!: number;
 
     constructor(userData: IUserRawData) {
         if (!userData)
@@ -20,7 +19,7 @@ class User implements IUser {
 
     // Init user data fields
     private parseUserData(user: IUserRawData): void {
-        this.id = user['id'];
+        this.id = parseInt(user['id']);
         this.firstName = user['firstName'];
         this.lastName = user['lastName'];
         this.department = user['department'];

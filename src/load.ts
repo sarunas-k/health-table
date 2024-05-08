@@ -1,6 +1,6 @@
 import type {
   IUserRawData,
-  ILoader,
+  IHealthTableLoader,
   IUserStore,
 } from "@/models/types/HealthTableTypes.mjs";
 import User from "./models/User";
@@ -12,29 +12,43 @@ import User from "./models/User";
  *
  */
 
-export default class Loader implements ILoader {
+export default class HealthTableLoader implements IHealthTableLoader {
   store: IUserStore;
+  public static count: number;
 
   constructor(store: IUserStore) {
     this.store = store;
+    HealthTableLoader.count = 0;
   }
 
   // Get user data from specified file. Format of 15 columns, each row describes one entry
   load(path: string) {
     const request = new Request(path);
     try {
-    fetch(request)
-      .then((response) => response.text())
-      .then((value) => {
-        const lines = value.split("\n");
-
-        lines
-          .slice(0, lines.length - 2)
-          .forEach((line, index) => this.parseUser(line, index));
-      })
+      fetch(request)
+        .then((response) => response.text())
+        .then((value) => {
+          const lines = value.split("\n");
+          HealthTableLoader.count = lines.length - 3;
+          this.parseUsers(lines);
+        });
     } catch {
-      throw new Error('Couldn\'t get the data with user information.');
+      throw new Error("Couldn't get the data with user information.");
     }
+  }
+
+  async parseUsers(lines: string[]) {
+    const parse = (data: string[]) => {
+      return new Promise((resolve) => {
+        data.slice(0, data.length - 2).forEach((line, index) => {
+          this.parseUser(line, index);
+          if (data[index+1] === '') {
+            resolve(true);
+          }
+        });
+      });
+    }
+    await parse(lines).catch(() => new Error("Error while loading all users data."));
   }
 
   // Create user object by using data from single line
@@ -42,7 +56,7 @@ export default class Loader implements ILoader {
     if (index === 0) return;
     const fields = line.split(",");
     if (fields.length !== 15)
-      throw Error(
+      throw new Error(
         "Unreadable data format found on line " + index + ". 15 words required."
       );
 
