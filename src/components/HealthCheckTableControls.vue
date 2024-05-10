@@ -10,7 +10,7 @@ const pages = computed(() => Math.ceil(store.allUsers.length / store.perPage));
 
 <template>
 	<div class="health-check-table-controls">
-		<div class="left-column">
+		<div class="controls-box">
 			<div class="totals">
 				<strong>Total: </strong>{{ store.allUsers.length }}
 			</div>
@@ -24,8 +24,6 @@ const pages = computed(() => Math.ceil(store.allUsers.length / store.perPage));
 				<input type="text" class="page-number-input" />
 				<InputButton icon="corner" :callback="() => console.log('Jump to')" />
 			</div>
-		</div>
-		<div class="right-column">
 			<div class="page-entries-control">
 				<span><strong>Show:</strong></span>
 				<button class="page-entries-btn active">
@@ -43,6 +41,24 @@ const pages = computed(() => Math.ceil(store.allUsers.length / store.perPage));
 </template>
 
 <style lang="scss" scoped>
+@media screen and (max-width: 768px) {
+	div.health-check-table-controls div.controls-box {
+		flex-flow: wrap;
+
+		&>div {
+			width: 50%;
+		}
+
+		.totals {
+			padding-left: 1rem;
+		}
+
+		.page-entries-control {
+			text-align: center;
+		}
+	}
+}
+
 .health-check-table-controls {
 	position: sticky;
 	bottom: 0;
@@ -54,26 +70,21 @@ const pages = computed(() => Math.ceil(store.allUsers.length / store.perPage));
 	font-size: 0.8rem;
 	padding-top: 1rem;
 
-	.totals {
-		padding-right: 1rem;
-	}
-
-	.left-column,
-	.right-column {
+	.controls-box {
 		flex-grow: 1;
 		padding: 0.5rem 0.8rem;
 		border-top: 1px solid #e6e6e6;
-	}
-
-	.left-column {
 		display: flex;
 		align-items: center;
-	}
 
-	.right-column {
-		text-align: right;
+		.totals {
+			padding-right: 1rem;
+		}
 
 		.page-entries-control {
+			flex-grow: 1;
+			text-align: right;
+
 			span {
 				margin-right: 0.5rem;
 			}
@@ -92,30 +103,29 @@ const pages = computed(() => Math.ceil(store.allUsers.length / store.perPage));
 			}
 		}
 
-	}
+		.pages {
+			flex-grow: 1;
+			text-align: center;
+			border-right: 1px solid #e6e6e6;
+			border-left: 1px solid #e6e6e6;
 
-	.pages {
-		flex-grow: 1;
-		text-align: center;
-		border-right: 1px solid #e6e6e6;
-		border-left: 1px solid #e6e6e6;
-
-		strong {
-			margin-right: 2rem;
-		}
-	}
-
-	.jump-to {
-		border-right: 1px solid #e6e6e6;
-		padding: 0 1rem;
-
-		strong {
-			margin-right: 0.5rem;
+			strong {
+				margin-right: 2rem;
+			}
 		}
 
-		input {
-			width: 3rem;
-			line-height: 2;
+		.jump-to {
+			border-right: 1px solid #e6e6e6;
+			padding: 0 1rem;
+
+			strong {
+				margin-right: 0.5rem;
+			}
+
+			input {
+				width: 3rem;
+				line-height: 2;
+			}
 		}
 	}
 }

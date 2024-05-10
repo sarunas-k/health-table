@@ -18,13 +18,14 @@ export default defineConfig({
   optimizeDeps: {
     include: ['./src/components/**/*.vue']
   },
+  base:'health-table/',
   build: {
     watch: {},
     commonjsOptions: {
       include: ['./src/components/**/*.vue']
     },
     outDir: 'dist/',
-    // assetsDir: './assets/',
+    assetsDir: 'assets',
     rollupOptions: {
       output: {
         assetFileNames: ({name}) => {
