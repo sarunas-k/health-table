@@ -35,6 +35,10 @@ const props = defineProps({
     vertical-align: middle;
     background: none;
 
+    &:not(.inactive) {
+        cursor: pointer;
+    }
+
     span {
         display: inline-block;
         width: 100%;
