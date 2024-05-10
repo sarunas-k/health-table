@@ -1,10 +1,27 @@
 <script setup lang="ts">
 import { useTableStore } from '@/stores/tableStore';
 import InputButton from './InputButton.vue'
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 
 const store = useTableStore();
 const pages = computed(() => Math.ceil(store.allUsers.length / store.perPage));
+const jumpToInput = ref('');
+function setPage() {
+	const pageFromInput = parseInt(jumpToInput.value);
+	if (Number.isInteger(pageFromInput) && pageFromInput >= 1 && pageFromInput <= pages.value)
+		store.page = pageFromInput;
+	else
+		jumpToInput.value = '';
+}
+
+function onClickShow(perPage: number) {
+	if (perPage === 50 && store.allUsers.length < 25)
+		return;
+	if (perPage === 100 && store.allUsers.length < 50)
+		return;
+	store.perPage = perPage;
+	store.page = 1;
+}
 
 </script>
 
@@ -16,23 +33,23 @@ const pages = computed(() => Math.ceil(store.allUsers.length / store.perPage));
 			</div>
 			<div class="pages">
 				<strong>Page {{ store.page }} / {{ pages }}</strong>
-				<InputButton icon="previous" :callback="() => store.page > 1 ? store.page-- : null" />
-				<InputButton icon="next" :callback="() => store.page < pages ? store.page++ : null" />
+				<InputButton icon="previous" :class="{ 'inactive': store.page < 2 }" :callback="() => store.page > 1 ? store.page-- : null" />
+				<InputButton icon="next" :class="{ 'inactive': store.page === pages }" :callback="() => store.page < pages ? store.page++ : null" />
 			</div>
 			<div class="jump-to">
 				<strong>Jump to:</strong>
-				<input type="text" class="page-number-input" />
-				<InputButton icon="corner" :callback="() => console.log('Jump to')" />
+				<input type="text" v-model="jumpToInput" class="page-number-input" />
+				<InputButton icon="corner" :callback="() => setPage()" :class="{ 'inactive': pages === 1 }" />
 			</div>
 			<div class="page-entries-control">
 				<span><strong>Show:</strong></span>
-				<button class="page-entries-btn active">
+				<button class="page-entries-btn" :class="{ 'active': store.perPage === 25 }" @click="onClickShow(25)">
 					25
 				</button>
-				<button class="page-entries-btn">
+				<button class="page-entries-btn" :class="{ 'active': store.perPage === 50, 'inactive': store.allUsers.length < 25 }" @click="onClickShow(50)">
 					50
 				</button>
-				<button class="page-entries-btn">
+				<button class="page-entries-btn" :class="{ 'active': store.perPage === 100, 'inactive': store.allUsers.length < 50 }" @click="onClickShow(100)">
 					100
 				</button>
 			</div>
@@ -57,6 +74,11 @@ const pages = computed(() => Math.ceil(store.allUsers.length / store.perPage));
 			text-align: center;
 		}
 	}
+}
+
+.inactive {
+	opacity: 0.5;
+	pointer-events: none;
 }
 
 .health-check-table-controls {
