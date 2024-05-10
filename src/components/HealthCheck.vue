@@ -45,7 +45,7 @@ function onChildCheck() {
 	store.updateHeadCheckbox();
 }
 
-let isClosed = ref(false);
+let isClosed = ref(true);
 
 function toggle(event: MouseEvent) {
 	const target: HTMLElement = event.target as HTMLElement;
@@ -153,5 +153,6 @@ function toggle(event: MouseEvent) {
 
 .checks {
 	overflow: clip;
+	height: 0;
 }
 </style>
