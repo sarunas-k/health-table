@@ -9,7 +9,10 @@ import { ref } from 'vue';
 const store = useTableStore();
 const users = ref(store.allUsers);
 const checkboxStates = ref(store.checkboxStates);
-const usersGroup = ref(store.getUsers());
+
+let page = 0; // Starting from 0
+let pageEntries = 25;
+
 function onHeaderCheck(value: boolean) {
 	for (let i = 0; i < users.value.length; i++)
 		checkboxStates.value[users.value[i].id] = { parent: value, checks: [ value, value, value ] };
@@ -47,7 +50,7 @@ function onHeaderCheck(value: boolean) {
 				<InputButton icon="refresh" :callback="() => console.log('Refresh clicked')" />
 			</div>
 		</header>
-		<HealthCheck v-for="(user, index) in usersGroup" :user="user as any" :key="index" />
+		<HealthCheck v-for="(user, index) in users.slice(page * pageEntries, pageEntries)" :user="user as any" :key="index" />
 	</div>
 </template>
 

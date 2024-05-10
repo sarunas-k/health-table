@@ -27,15 +27,6 @@ export const useTableStore = defineStore('users', () => {
         isHeadChecked.value = atLeastOneChecked.value;
     }
 
-    function getUsers(limit: number = perPage.value, page: number = 1): Ref<Array<IUser>> | null {
-        if (!isLoaded.value)
-            return null;
-        if (page === 1)
-            return ref(allUsers.value.slice(0, limit));
-
-        return ref(allUsers.value.slice((page-1) * limit, limit));
-    }
-
     function setUsersPerPage(k: number) {
         if (!k)
             return;
@@ -51,7 +42,6 @@ export const useTableStore = defineStore('users', () => {
         atLeastOneChecked,
         allChecked,
         updateHeadCheckbox,
-        getUsers,
         perPage,
         isLoaded
     }
