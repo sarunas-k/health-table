@@ -2,7 +2,7 @@
 const props = defineProps({
     icon: {
         validator(value: string) {
-            return ['next', 'previous', 'up', 'down', 'more', 'refresh'].includes(value)
+            return ['next', 'previous', 'up', 'down', 'more', 'refresh', 'corner'].includes(value)
         },
         type: String,
         required: true,
@@ -46,7 +46,10 @@ const props = defineProps({
     }
 
     &.more-icon,
-    &.refresh-icon {
+    &.refresh-icon,
+    &.corner-icon,
+    &.next-icon,
+    &.previous-icon {
         span {
             mask-size: 50%;
         }

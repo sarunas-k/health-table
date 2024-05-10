@@ -7,6 +7,7 @@ export const useTableStore = defineStore('users', () => {
     const allUsers: Ref<Array<IUser>> = ref(new Array<IUser>());
     const checkboxStates: Ref<Array<IRecordCheckboxes>> = ref(new Array<IRecordCheckboxes>());
     const perPage = ref(25);
+    const page = ref(1);
     const isHeadChecked: Ref<boolean> = ref(false);
     const isLoaded: Ref<boolean> = ref(false);
     const atLeastOneChecked = computed(() => isLoaded.value && checkboxStates.value.find((group) => group.parent === true) ? true : false);
@@ -43,6 +44,7 @@ export const useTableStore = defineStore('users', () => {
         allChecked,
         updateHeadCheckbox,
         perPage,
+        page,
         isLoaded
     }
 });

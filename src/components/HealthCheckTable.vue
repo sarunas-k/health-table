@@ -1,21 +1,21 @@
 <script setup lang="ts">
 import HealthCheck from './HealthCheck.vue';
 import InputCheckbox from './InputCheckbox.vue';
-import { CheckboxType, type IUser } from '@/models/types/HealthTableTypes.mjs';
+import { CheckboxType } from '@/models/types/HealthTableTypes.mjs';
 import InputButton from './InputButton.vue';
 import { useTableStore } from '@/stores/tableStore';
-import { ref } from 'vue';
+import { computed } from 'vue';
 
 const store = useTableStore();
-const users = ref(store.allUsers);
-const checkboxStates = ref(store.checkboxStates);
+const visibleEntries = computed(() => {
+	if (store.page === 1)
+		return store.allUsers.slice(0, store.perPage);
 
-let page = 0; // Starting from 0
-let pageEntries = 25;
-
+	return store.allUsers.slice((store.page - 1) * store.perPage, (store.page * store.perPage));
+});
 function onHeaderCheck(value: boolean) {
-	for (let i = 0; i < users.value.length; i++)
-		checkboxStates.value[users.value[i].id] = { parent: value, checks: [ value, value, value ] };
+	for (let i = 0; i < store.allUsers.length; i++)
+		store.checkboxStates[store.allUsers[i].id] = { parent: value, checks: [ value, value, value ] };
 }
 </script>
 
@@ -50,11 +50,11 @@ function onHeaderCheck(value: boolean) {
 				<InputButton icon="refresh" :callback="() => console.log('Refresh clicked')" />
 			</div>
 		</header>
-		<HealthCheck v-for="(user, index) in users.slice(page * pageEntries, pageEntries)" :user="user as any" :key="index" />
+		<HealthCheck v-for="(user, index) in visibleEntries" :user="user as any" :key="index" />
 	</div>
 </template>
 
-<style>
+<style lang="scss" scoped>
 header {
     box-shadow: var(--table-shadow);
 	display: grid;
@@ -70,5 +70,14 @@ header {
 div[role=col] {
 	display: flex;
 	align-items: center;
+	border-right: 1px solid #e6e6e6;
+	padding-left: 0.5rem;
+	&:first-child {
+		padding-left: 0.8rem;
+	}
+
+	&:last-child {
+		border-right: 0;
+	}
 }
 </style>
