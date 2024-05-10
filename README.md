@@ -24,12 +24,13 @@ Special requirements
 ```
 1. Collapse rows
 2. Change columns' width
-3. (Un)check checkbox groups
-4. Flat data in row as input
-5. Responds to screen size
-6. Show popup when "more" is clicked
-7. First and last columns stay fixed to sides
-8. Support small screens
-9. Display in pages of 25, 50, 100
+3. Accessible HTML
+4. (Un)check checkbox groups
+5. Flat data in row as input
+6. Responds to screen size
+7. Show popup when "more" is clicked
+8. First and last columns stay fixed to sides
+9. Support small screens
+10. Display in pages of 25, 50, 100
 
 ```
