@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import HealthCheckTableControls from './HealthCheckTableControls.vue';
 import HealthCheck from './HealthCheck.vue';
 import InputCheckbox from './InputCheckbox.vue';
 import { CheckboxType } from '@/models/types/HealthTableTypes.mjs';
@@ -51,6 +52,7 @@ function onHeaderCheck(value: boolean) {
 			</div>
 		</header>
 		<HealthCheck v-for="(user, index) in visibleEntries" :user="user as any" :key="index" />
+		<HealthCheckTableControls />
 	</div>
 </template>
 

@@ -58,24 +58,6 @@ function onClickShow(perPage: number) {
 </template>
 
 <style lang="scss" scoped>
-@media screen and (max-width: 768px) {
-	div.health-check-table-controls div.controls-box {
-		flex-flow: wrap;
-
-		&>div {
-			width: 50%;
-		}
-
-		.totals {
-			padding-left: 1rem;
-		}
-
-		.page-entries-control {
-			text-align: center;
-		}
-	}
-}
-
 .inactive {
 	opacity: 0.5;
 	pointer-events: none;
