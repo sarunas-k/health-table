@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { ModelRef } from 'vue';
+
 
 defineProps({
     icon: {
@@ -12,7 +14,7 @@ defineProps({
     }
 });
 
-const checkedModel = defineModel();
+const checkedModel: ModelRef<Boolean> = defineModel() as ModelRef<Boolean>;
 
 </script>
 

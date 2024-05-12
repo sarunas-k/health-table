@@ -18,7 +18,7 @@ export default defineConfig({
   optimizeDeps: {
     include: ['./src/components/**/*.vue']
   },
-  base:'health-table/',
+  base:'/health-table/',
   build: {
     watch: {},
     commonjsOptions: {

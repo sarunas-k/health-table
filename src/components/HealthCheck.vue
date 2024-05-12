@@ -48,21 +48,17 @@ function onChildCheck() {
 let isClosed = ref(true);
 
 function toggle(event: MouseEvent) {
+	console.log(event.target);
 	const target: HTMLElement = event.target as HTMLElement;
 	if (target === null)
 		return;
-	if (typeof target.localName !== 'undefined' && target.localName !== 'label' && target.localName !== 'input') {
+	if (typeof target.localName !== 'undefined' && target.tagName !== 'label' && target.tagName !== 'input' && target.className !== 'more') {
 		isClosed.value = !isClosed.value;
-		const currentTarget = event.currentTarget as HTMLElement;
-		const rows = currentTarget.nextSibling as HTMLElement;
-		let height = !isClosed.value ? 0 : rows.scrollHeight;
-		let iteration = rows.scrollHeight / 100;
-		for (let i = 0; i < 100; i++) {
-			setTimeout(() => {
-				height = !isClosed.value ? height + iteration : height - iteration;
-				rows.style.height = Math.floor(height) + 'px';
-			}, 100);
-		}
+		const siblingChecks: HTMLDivElement = (event.currentTarget as HTMLElement).nextElementSibling as HTMLDivElement;
+		if (siblingChecks === null)
+			return;
+
+		siblingChecks.style.height = isClosed.value ? '0px' : siblingChecks.scrollHeight + 'px';
 	}
 }
 
@@ -78,7 +74,7 @@ function toggle(event: MouseEvent) {
 			/>
 		</div>
 		<div class="col-2 col">
-			<InputButton :icon="isClosed ? 'down' : 'up'" :callback="() => console.log('Clicked on user row')" />{{
+			<InputButton :icon="isClosed ? 'down' : 'up'" />{{
 				user.firstName + ' ' + user.lastName + ' (' + validChecks + '/3)' }}
 		</div>
 		<div></div>
@@ -94,7 +90,7 @@ function toggle(event: MouseEvent) {
 			{{ user.jobTitle }}
 		</div>
 		<div class="col">
-			<InputButton icon="more" :callback="() => console.log('More button clicked')" />
+			<InputButton icon="more" />
 		</div>
 	</div>
 	<div class="checks">
@@ -122,7 +118,7 @@ function toggle(event: MouseEvent) {
 			<div></div>
 			<div></div>
 			<div class="col">
-				<InputButton icon="more" :callback="() => console.log('More button click')" />
+				<InputButton icon="more" class="more" />
 			</div>
 		</div>
 	</div>
@@ -154,5 +150,6 @@ function toggle(event: MouseEvent) {
 .checks {
 	overflow: clip;
 	height: 0;
+	transition: height 0.3s ease-in;
 }
 </style>
