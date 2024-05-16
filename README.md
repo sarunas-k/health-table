@@ -1,6 +1,7 @@
 # Health Check Summary
 > **Vue / Typescript-based UI component**
-
+### This was the reference I started from:
+![Reference](https://batai.w5.lt/health-table/Healthchecksummary.png)
 General requirements
 --------------------
 User interface component which takes data from a local file
