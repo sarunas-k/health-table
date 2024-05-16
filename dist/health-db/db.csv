@@ -1,0 +1,201 @@
+id,firstName,lastName,status,jobTitle,department,checkCode_1,expiration_1,checkStatus_1,checkCode_2,expiration_2,checkStatus_2,checkCode_3,expiration_3,checkStatus_3
+1,Marijn,Vedntyev,0,Padavėjas,Logistika,0000,2026-10-12,0,0001,2024-07-05,0,0002,2024-11-07,1
+2,Bernie,Blowen,1,Konsultantas,Klientų aptarnavimas,0000,2026-07-22,0,0001,2026-03-27,0,0002,2024-01-08,1
+3,Clerkclaude,Stallon,0,Vairuotojas,IT,0000,2024-12-05,1,0001,2024-11-14,-1,0002,2023-06-22,-1
+4,Linn,Woodfin,0,Vairuotojas,Klientų aptarnavimas,0000,2026-09-19,1,0001,2023-09-24,0,0002,2023-10-06,1
+5,Lizzie,Royan,1,Direktorius,Gamyba,0000,2025-05-23,-1,0001,2023-10-27,1,0002,2023-11-30,0
+6,Sayers,Purvess,0,Vadybininkas,Klientų aptarnavimas,0000,2025-01-14,0,0001,2024-03-07,-1,0002,2024-05-08,0
+7,Deanne,Chiplen,1,Direktorius,Gamyba,0000,2025-08-29,-1,0001,2024-11-01,-1,0002,2024-05-12,0
+8,Sandy,Chese,0,Mokytojas,IT,0000,2025-01-28,-1,0001,2024-11-21,-1,0002,2024-06-08,0
+9,Brandie,Thornley,1,Konsultantas,Gamyba,0000,2024-05-10,-1,0001,2023-08-11,-1,0002,2025-03-07,1
+10,Baillie,Grombridge,1,Vairuotojas,IT,0000,2026-10-27,-1,0001,2026-02-11,-1,0002,2023-09-10,0
+11,Pietro,Byas,0,Vairuotojas,Logistika,0000,2023-12-21,0,0001,2024-03-23,0,0002,2024-03-14,-1
+12,Kendricks,Oddboy,0,Operatorius,Logistika,0000,2023-12-16,1,0001,2025-12-29,0,0002,2025-02-21,1
+13,Faun,Castaneda,0,Vadybininkas,Gamyba,0000,2026-07-05,1,0001,2025-01-05,-1,0002,2024-05-02,-1
+14,Jesse,Denholm,0,Vairuotojas,Logistika,0000,2024-08-05,1,0001,2025-04-13,0,0002,2024-09-27,1
+15,Lawton,Hegley,0,Direktorius,Klientų aptarnavimas,0000,2024-08-09,0,0001,2023-12-25,-1,0002,2023-10-06,0
+16,Nicol,Bousquet,1,Vairuotojas,IT,0000,2026-06-18,0,0001,2023-07-25,0,0002,2024-08-13,-1
+17,Baily,Warden,1,Direktorius,IT,0000,2025-06-07,1,0001,2024-02-19,-1,0002,2024-03-16,1
+18,Karina,todor,1,Direktorius,IT,0000,2025-08-26,1,0001,2024-07-16,0,0002,2024-02-26,0
+19,Randie,Chatt,1,Vairuotojas,Gamyba,0000,2025-04-26,0,0001,2024-10-21,1,0002,2024-11-24,0
+20,Braden,Callear,1,Konsultantas,IT,0000,2025-09-13,0,0001,2024-01-02,-1,0002,2025-06-10,0
+21,Karrah,Bezemer,1,Operatorius,Logistika,0000,2025-09-21,1,0001,2025-03-23,0,0002,2025-05-24,0
+22,Helaina,Boswell,1,Vairuotojas,Gamyba,0000,2025-12-17,1,0001,2024-07-21,0,0002,2024-07-25,-1
+23,Aline,Schuster,1,Vairuotojas,Klientų aptarnavimas,0000,2025-10-26,1,0001,2025-07-26,0,0002,2023-09-21,1
+24,Minda,Buzzing,0,Padavėjas,Klientų aptarnavimas,0000,2026-08-20,1,0001,2025-09-22,-1,0002,2024-05-12,1
+25,Fred,Nornasell,1,Padavėjas,Klientų aptarnavimas,0000,2025-02-13,1,0001,2024-06-20,0,0002,2023-06-22,-1
+26,Dominga,Gonnelly,0,Direktorius,Logistika,0000,2026-02-19,1,0001,2025-09-06,-1,0002,2024-09-23,1
+27,Nerita,Bamblett,0,Vadybininkas,Gamyba,0000,2025-11-28,1,0001,2024-01-27,1,0002,2023-07-01,-1
+28,Gallagher,Yurchenko,0,Direktorius,Klientų aptarnavimas,0000,2026-03-17,0,0001,2024-11-02,0,0002,2024-03-18,-1
+29,Germana,Frenzel;,0,Konsultantas,Klientų aptarnavimas,0000,2025-04-24,-1,0001,2025-05-25,-1,0002,2025-02-26,1
+30,Fae,Muddicliffe,1,Konsultantas,Klientų aptarnavimas,0000,2025-12-22,-1,0001,2025-04-08,-1,0002,2024-03-18,0
+31,Dolores,Mastrantone,1,Mokytojas,Gamyba,0000,2024-05-29,1,0001,2026-03-07,0,0002,2023-09-12,0
+32,Lola,Krelle,0,Mokytojas,IT,0000,2026-04-13,0,0001,2024-09-17,-1,0002,2023-06-15,1
+33,Torry,Pardy,1,Vadybininkas,Klientų aptarnavimas,0000,2026-09-12,-1,0001,2023-11-16,0,0002,2023-10-29,1
+34,Theodore,Agge,1,Operatorius,IT,0000,2024-06-20,1,0001,2024-12-20,0,0002,2023-09-25,-1
+35,Daisie,Fruen,0,Mokytojas,Gamyba,0000,2024-07-27,-1,0001,2025-11-22,0,0002,2024-01-04,-1
+36,Thatch,Girardetti,0,Vadybininkas,Logistika,0000,2026-02-10,1,0001,2026-02-04,0,0002,2024-12-01,1
+37,John,Alsobrook,1,Mokytojas,Klientų aptarnavimas,0000,2026-03-17,1,0001,2023-08-21,1,0002,2023-07-26,-1
+38,Estele,Gooms,0,Vadybininkas,Logistika,0000,2025-08-28,-1,0001,2026-03-08,-1,0002,2024-03-24,-1
+39,Freddi,Spollen,1,Konsultantas,Klientų aptarnavimas,0000,2025-08-04,-1,0001,2023-05-14,0,0002,2024-06-30,1
+40,Corrinne,Bonn,0,Operatorius,Logistika,0000,2025-07-30,-1,0001,2024-03-06,0,0002,2024-04-28,1
+41,Tanya,Gove,0,Mokytojas,Klientų aptarnavimas,0000,2025-03-25,1,0001,2024-11-02,-1,0002,2024-10-28,1
+42,Baillie,Pohls,0,Vairuotojas,IT,0000,2025-12-28,0,0001,2024-02-12,1,0002,2025-05-26,-1
+43,Lorettalorna,Kingzet,0,Vadybininkas,Logistika,0000,2024-04-07,-1,0001,2024-06-22,0,0002,2023-09-08,-1
+44,Ardeen,McKain,1,Operatorius,Logistika,0000,2026-05-11,-1,0001,2024-11-06,1,0002,2024-01-25,-1
+45,Taite,Castellan,1,Padavėjas,Gamyba,0000,2024-11-03,-1,0001,2023-10-10,1,0002,2024-08-27,-1
+46,Oralie,Spykings,0,Padavėjas,Klientų aptarnavimas,0000,2026-08-25,-1,0001,2025-01-31,0,0002,2024-08-04,-1
+47,Erroll,Abell,1,Mokytojas,Gamyba,0000,2025-10-10,1,0001,2023-09-04,-1,0002,2025-02-27,1
+48,Delilah,Kairns,1,Direktorius,Klientų aptarnavimas,0000,2025-08-23,0,0001,2024-09-05,0,0002,2023-10-01,0
+49,Maddi,Leek,0,Mokytojas,Gamyba,0000,2026-02-05,0,0001,2024-07-08,0,0002,2024-11-13,0
+50,Janina,Bewlay,1,Vadybininkas,Logistika,0000,2024-12-30,-1,0001,2023-07-07,0,0002,2024-06-18,-1
+51,Amye,Weben,1,Mokytojas,Logistika,0000,2024-03-20,-1,0001,2024-11-19,1,0002,2024-08-17,-1
+52,Adriana,Viggars,1,Vadybininkas,Klientų aptarnavimas,0000,2025-07-01,1,0001,2023-08-21,-1,0002,2025-05-16,1
+53,Lisette,Bloy,0,Direktorius,Logistika,0000,2026-06-19,0,0001,2023-12-02,0,0002,2023-06-04,-1
+54,Edgardo,Wearne,0,Mokytojas,IT,0000,2026-03-04,-1,0001,2023-12-17,1,0002,2025-06-12,0
+55,Codie,Casburn,1,Vadybininkas,Klientų aptarnavimas,0000,2026-02-16,-1,0001,2025-10-14,-1,0002,2023-05-21,0
+56,Perry,Salzen,0,Vairuotojas,IT,0000,2026-07-19,1,0001,2025-10-28,0,0002,2024-06-10,-1
+57,Devin,Hendriksen,0,Vadybininkas,IT,0000,2025-02-19,-1,0001,2025-01-21,1,0002,2023-05-19,0
+58,Lane,Ceaplen,1,Padavėjas,Logistika,0000,2026-07-04,0,0001,2024-01-11,1,0002,2024-06-10,0
+59,Pat,Taylorson,0,Vairuotojas,Klientų aptarnavimas,0000,2025-10-17,1,0001,2023-05-06,0,0002,2025-06-12,0
+60,Garvin,Count,0,Konsultantas,Klientų aptarnavimas,0000,2025-10-26,-1,0001,2026-03-12,1,0002,2024-04-22,1
+61,Arther,Sainteau,1,Vairuotojas,Klientų aptarnavimas,0000,2026-08-07,0,0001,2024-06-20,-1,0002,2024-03-17,1
+62,Tonya,Lympenie,0,Padavėjas,IT,0000,2025-02-13,-1,0001,2026-03-05,0,0002,2024-09-04,1
+63,Aubrette,Leisman,0,Vadybininkas,Klientų aptarnavimas,0000,2024-12-16,1,0001,2024-07-28,1,0002,2023-09-10,-1
+64,Spense,MacConnechie,1,Padavėjas,Gamyba,0000,2025-12-18,0,0001,2026-03-04,-1,0002,2024-11-16,0
+65,Jeanine,De La Hay,1,Konsultantas,Gamyba,0000,2024-12-09,-1,0001,2024-07-18,0,0002,2023-08-20,-1
+66,Burtie,Troke,1,Mokytojas,IT,0000,2026-02-25,1,0001,2025-08-08,1,0002,2024-04-27,-1
+67,Lilyan,Tape,1,Vadybininkas,IT,0000,2025-01-04,1,0001,2024-08-15,1,0002,2023-12-05,0
+68,Caroline,Westmacott,0,Padavėjas,Logistika,0000,2025-03-07,1,0001,2023-09-22,-1,0002,2024-06-17,0
+69,Gae,Denisot,1,Padavėjas,Klientų aptarnavimas,0000,2026-01-19,-1,0001,2024-01-10,0,0002,2024-10-13,-1
+70,Gregorio,Fernanando,0,Vadybininkas,Klientų aptarnavimas,0000,2024-01-06,1,0001,2024-11-03,1,0002,2024-07-26,-1
+71,Fay,Burrus,0,Operatorius,Gamyba,0000,2026-07-03,0,0001,2025-05-13,0,0002,2025-03-18,-1
+72,Mercedes,Holberry,1,Padavėjas,Klientų aptarnavimas,0000,2026-05-16,1,0001,2024-03-07,0,0002,2023-08-04,-1
+73,Lenee,de Clerq,0,Vairuotojas,Klientų aptarnavimas,0000,2024-01-11,0,0001,2024-06-23,1,0002,2023-11-06,0
+74,Jody,Skally,0,Vadybininkas,Klientų aptarnavimas,0000,2024-07-14,1,0001,2025-10-23,-1,0002,2023-10-26,1
+75,Tina,Loughan,1,Operatorius,Logistika,0000,2024-10-15,0,0001,2025-07-03,1,0002,2024-08-03,0
+76,Den,Kedward,1,Direktorius,Gamyba,0000,2024-02-27,-1,0001,2025-07-07,1,0002,2024-01-12,1
+77,Shannen,Mohammed,0,Padavėjas,Gamyba,0000,2026-08-09,-1,0001,2025-06-30,0,0002,2023-08-12,-1
+78,Ddene,Roke,1,Mokytojas,Klientų aptarnavimas,0000,2025-09-08,-1,0001,2025-10-06,-1,0002,2024-12-16,0
+79,Meir,Dows,1,Mokytojas,Logistika,0000,2025-03-11,0,0001,2023-09-04,-1,0002,2024-11-20,-1
+80,Kai,Ruoff,1,Mokytojas,Logistika,0000,2026-07-27,1,0001,2023-05-27,-1,0002,2024-09-24,-1
+81,Fawn,Scurry,0,Konsultantas,Klientų aptarnavimas,0000,2025-01-28,-1,0001,2024-09-21,0,0002,2025-04-16,-1
+82,Beret,Aviss,1,Direktorius,Klientų aptarnavimas,0000,2026-02-01,0,0001,2026-03-04,1,0002,2024-07-21,0
+83,Pennie,Shattock,1,Konsultantas,Gamyba,0000,2025-01-19,0,0001,2025-04-09,0,0002,2025-01-06,0
+84,Lacy,Penhalurick,0,Operatorius,Gamyba,0000,2025-04-23,1,0001,2024-09-04,0,0002,2024-07-16,1
+85,Matty,Duffrie,1,Operatorius,Klientų aptarnavimas,0000,2025-03-17,-1,0001,2024-04-02,-1,0002,2024-10-27,1
+86,Roselia,Boxhall,0,Mokytojas,Gamyba,0000,2026-10-03,1,0001,2025-09-10,0,0002,2024-02-07,0
+87,Natalya,Fost,0,Mokytojas,Gamyba,0000,2025-09-20,0,0001,2025-02-10,-1,0002,2023-07-03,0
+88,Blanca,Barabisch,1,Operatorius,Gamyba,0000,2026-10-14,0,0001,2024-08-29,0,0002,2023-08-21,-1
+89,Johnathon,Feuell,0,Direktorius,Gamyba,0000,2024-06-28,-1,0001,2023-06-30,0,0002,2023-12-31,0
+90,Noah,Eversfield,0,Vairuotojas,Logistika,0000,2024-01-15,1,0001,2026-01-14,-1,0002,2023-10-05,-1
+91,Bernie,Orehead,0,Mokytojas,IT,0000,2025-08-03,0,0001,2023-06-02,1,0002,2023-07-25,-1
+92,Jarrod,Keedy,1,Operatorius,IT,0000,2025-10-08,0,0001,2024-11-02,1,0002,2024-04-07,-1
+93,Jacklin,Brookfield,0,Mokytojas,IT,0000,2023-12-31,1,0001,2024-07-09,0,0002,2024-02-25,0
+94,Tarrance,Thunderchief,0,Vadybininkas,Gamyba,0000,2026-01-01,1,0001,2026-02-22,1,0002,2025-03-18,1
+95,Rosemary,Schuelcke,1,Operatorius,Gamyba,0000,2025-11-04,1,0001,2025-07-20,1,0002,2024-04-29,-1
+96,Gael,Curr,1,Vadybininkas,Gamyba,0000,2025-11-16,0,0001,2025-05-15,0,0002,2024-02-04,0
+97,Abbi,Sapp,0,Operatorius,Klientų aptarnavimas,0000,2026-07-02,-1,0001,2023-11-29,1,0002,2025-05-12,1
+98,Jecho,Scardifield,1,Operatorius,Klientų aptarnavimas,0000,2026-01-18,0,0001,2025-11-30,1,0002,2024-07-29,1
+99,Antonetta,Geoghegan,0,Mokytojas,Logistika,0000,2024-08-15,1,0001,2026-02-16,1,0002,2024-03-25,1
+100,Catharina,Ralphs,1,Direktorius,IT,0000,2024-07-04,1,0001,2024-10-19,-1,0002,2023-06-07,1
+101,Bret,Bennoe,1,Konsultantas,IT,0000,2025-09-23,0,0001,2023-06-03,0,0002,2024-03-30,1
+102,Bambie,Domm,0,Operatorius,Logistika,0000,2025-02-14,0,0001,2023-11-24,1,0002,2024-07-15,1
+103,Willard,Doram,1,Mokytojas,Logistika,0000,2024-02-16,1,0001,2024-04-11,-1,0002,2025-01-03,0
+104,Scarlet,Fydoe,0,Mokytojas,IT,0000,2025-03-05,0,0001,2023-08-25,0,0002,2024-09-09,1
+105,Carissa,Ghirigori,1,Konsultantas,Logistika,0000,2025-10-04,1,0001,2024-10-11,0,0002,2024-06-23,0
+106,Ernesto,Juszczak,0,Padavėjas,IT,0000,2026-04-25,-1,0001,2024-07-02,-1,0002,2025-05-21,0
+107,Mac,Pover,1,Operatorius,Logistika,0000,2025-02-14,1,0001,2025-07-10,-1,0002,2025-02-08,1
+108,Davey,Goose,1,Direktorius,Logistika,0000,2025-06-15,-1,0001,2025-10-20,0,0002,2025-01-03,0
+109,Cornelle,Pendergrast,0,Operatorius,Klientų aptarnavimas,0000,2024-12-12,1,0001,2024-11-24,0,0002,2024-12-16,1
+110,Ruprecht,Thome,1,Mokytojas,Gamyba,0000,2025-12-06,0,0001,2025-04-17,-1,0002,2023-11-25,1
+111,Anton,Elletson,1,Mokytojas,Klientų aptarnavimas,0000,2024-03-13,-1,0001,2025-10-18,-1,0002,2025-06-07,1
+112,Darrin,Pinckney,0,Vadybininkas,Klientų aptarnavimas,0000,2024-09-09,-1,0001,2024-01-12,0,0002,2024-07-17,1
+113,Nealy,Rumbold,1,Mokytojas,Logistika,0000,2025-09-11,-1,0001,2025-09-18,1,0002,2023-11-24,1
+114,Aindrea,Barneville,1,Vairuotojas,Gamyba,0000,2024-09-05,-1,0001,2024-06-01,-1,0002,2024-05-05,1
+115,Alica,Gallier,0,Padavėjas,Logistika,0000,2025-07-21,-1,0001,2023-08-08,-1,0002,2024-06-28,1
+116,Jobi,Gorries,0,Padavėjas,Gamyba,0000,2025-06-29,0,0001,2025-05-30,1,0002,2024-09-30,-1
+117,Osmond,Mozzi,1,Konsultantas,IT,0000,2024-06-11,-1,0001,2025-03-14,-1,0002,2024-06-19,0
+118,Sylvan,Hlavecek,1,Konsultantas,IT,0000,2024-09-28,-1,0001,2025-11-23,1,0002,2025-05-06,1
+119,Eula,Haddacks,1,Vairuotojas,IT,0000,2025-11-14,1,0001,2025-01-11,1,0002,2025-01-22,0
+120,Tamas,Vickers,0,Padavėjas,Logistika,0000,2024-04-18,0,0001,2023-07-22,-1,0002,2024-03-30,1
+121,Walsh,Coales,1,Vairuotojas,Gamyba,0000,2024-01-23,1,0001,2025-06-03,0,0002,2024-12-20,-1
+122,Hendrika,Moryson,0,Padavėjas,Logistika,0000,2024-08-08,-1,0001,2025-06-13,1,0002,2025-01-10,1
+123,Donovan,Kunath,1,Vadybininkas,IT,0000,2026-02-06,-1,0001,2024-05-04,1,0002,2023-11-01,1
+124,Curtice,Chalke,0,Vadybininkas,IT,0000,2024-03-12,1,0001,2025-11-19,-1,0002,2024-06-28,0
+125,Deirdre,Casetti,1,Konsultantas,Logistika,0000,2025-09-14,1,0001,2024-01-14,1,0002,2025-02-24,0
+126,Lori,Burmaster,1,Mokytojas,Klientų aptarnavimas,0000,2026-06-06,-1,0001,2025-07-21,0,0002,2023-07-19,0
+127,Annette,Capelen,1,Mokytojas,Klientų aptarnavimas,0000,2024-11-01,-1,0001,2025-11-16,-1,0002,2024-12-22,1
+128,Isadore,Conaboy,0,Vairuotojas,Gamyba,0000,2026-05-15,-1,0001,2026-01-20,-1,0002,2025-05-22,-1
+129,Kate,Cobello,0,Vairuotojas,IT,0000,2024-08-13,0,0001,2024-05-06,-1,0002,2024-01-12,0
+130,Townie,Merrington,1,Vairuotojas,Logistika,0000,2024-09-09,1,0001,2024-09-16,0,0002,2025-05-04,1
+131,Zola,Trewin,1,Mokytojas,Klientų aptarnavimas,0000,2024-09-25,1,0001,2026-02-02,1,0002,2024-08-21,1
+132,Ringo,Guerry,1,Konsultantas,IT,0000,2026-04-30,1,0001,2024-12-21,1,0002,2024-03-05,-1
+133,Cristabel,Loidl,0,Vairuotojas,IT,0000,2026-08-12,0,0001,2023-06-20,1,0002,2024-04-08,1
+134,Marlo,Newstead,0,Mokytojas,Gamyba,0000,2026-03-10,1,0001,2024-11-10,0,0002,2024-05-01,0
+135,Prisca,Visick,0,Vairuotojas,Logistika,0000,2024-10-28,0,0001,2023-12-01,-1,0002,2024-06-21,0
+136,Evelyn,Loblie,0,Mokytojas,Gamyba,0000,2024-10-29,-1,0001,2024-05-11,-1,0002,2024-03-01,1
+137,Colleen,McIntosh,0,Vadybininkas,Gamyba,0000,2025-04-27,-1,0001,2023-11-30,-1,0002,2023-08-24,-1
+138,Petunia,Blaver,1,Direktorius,Logistika,0000,2025-07-23,-1,0001,2024-03-21,1,0002,2024-05-12,-1
+139,Shannan,Figgins,0,Konsultantas,Gamyba,0000,2024-05-13,-1,0001,2025-05-27,-1,0002,2023-07-30,-1
+140,Giustina,Roycroft,1,Konsultantas,Klientų aptarnavimas,0000,2025-10-10,-1,0001,2026-02-01,-1,0002,2023-12-25,-1
+141,Natty,Robuchon,0,Vadybininkas,Gamyba,0000,2026-07-16,0,0001,2025-07-12,1,0002,2025-05-05,1
+142,Nellie,Issakov,0,Direktorius,IT,0000,2024-04-20,1,0001,2025-07-23,0,0002,2024-08-30,0
+143,Sherilyn,Barthel,0,Direktorius,Gamyba,0000,2025-04-27,1,0001,2025-08-06,-1,0002,2024-11-19,1
+144,Konstance,Blann,1,Vairuotojas,Gamyba,0000,2026-07-25,0,0001,2024-07-17,-1,0002,2023-11-27,1
+145,Ivy,Packe,1,Mokytojas,IT,0000,2026-05-06,0,0001,2025-07-10,1,0002,2024-01-04,1
+146,Sheba,Gartin,1,Operatorius,Klientų aptarnavimas,0000,2025-08-28,1,0001,2023-11-07,1,0002,2024-05-05,-1
+147,Aldric,Lilleycrop,0,Mokytojas,IT,0000,2025-07-01,0,0001,2026-03-14,-1,0002,2025-03-20,1
+148,Leia,Garms,0,Vadybininkas,Logistika,0000,2025-02-19,1,0001,2024-02-09,-1,0002,2024-08-18,0
+149,Jenni,Langthorn,1,Mokytojas,IT,0000,2026-03-27,1,0001,2024-05-20,-1,0002,2024-10-25,0
+150,Milka,Wheatland,1,Direktorius,IT,0000,2024-07-04,0,0001,2025-04-21,0,0002,2023-06-29,1
+151,Catarina,Tidgewell,1,Operatorius,IT,0000,2024-06-08,1,0001,2024-05-03,0,0002,2024-11-12,0
+152,Jefferey,Garces,0,Vairuotojas,Klientų aptarnavimas,0000,2026-03-07,0,0001,2026-03-17,1,0002,2024-03-19,0
+153,Kora,Bessey,1,Konsultantas,Logistika,0000,2025-05-27,-1,0001,2023-08-28,-1,0002,2024-03-23,0
+154,Glory,Colisbe,0,Konsultantas,IT,0000,2024-09-12,1,0001,2023-11-23,0,0002,2024-02-16,0
+155,Lucille,Ollander,1,Konsultantas,Gamyba,0000,2025-01-10,0,0001,2023-08-26,1,0002,2024-01-23,-1
+156,Nessie,McCrackan,1,Direktorius,Logistika,0000,2025-04-16,1,0001,2025-02-14,1,0002,2023-09-06,0
+157,Jazmin,Stryde,0,Operatorius,IT,0000,2025-08-11,0,0001,2025-07-16,1,0002,2024-06-20,1
+158,Bunny,Harron,0,Padavėjas,Klientų aptarnavimas,0000,2026-07-17,-1,0001,2026-02-07,-1,0002,2025-02-13,1
+159,Marian,McGaughay,0,Direktorius,Klientų aptarnavimas,0000,2026-01-23,1,0001,2025-12-29,1,0002,2023-09-03,-1
+160,Stavros,Espinazo,1,Operatorius,IT,0000,2024-10-18,0,0001,2024-08-16,-1,0002,2025-05-10,0
+161,Farleigh,Yukhnini,1,Operatorius,Klientų aptarnavimas,0000,2025-04-21,0,0001,2023-06-02,1,0002,2024-07-30,1
+162,Les,MacTerrelly,0,Operatorius,Gamyba,0000,2024-02-25,1,0001,2025-08-21,0,0002,2024-03-06,0
+163,Merry,Havill,1,Vairuotojas,IT,0000,2026-03-20,-1,0001,2024-08-30,1,0002,2023-05-29,1
+164,Em,Aickin,1,Vadybininkas,Klientų aptarnavimas,0000,2025-02-17,-1,0001,2025-04-25,-1,0002,2025-01-21,1
+165,Elyn,Boller,1,Konsultantas,Gamyba,0000,2024-03-03,-1,0001,2024-03-10,-1,0002,2023-07-08,-1
+166,Stormie,Lemm,0,Mokytojas,Gamyba,0000,2024-08-08,1,0001,2025-10-09,-1,0002,2023-12-26,1
+167,Stillman,Elland,0,Vairuotojas,Logistika,0000,2026-04-18,1,0001,2026-03-16,0,0002,2025-01-16,-1
+168,Dena,Brookesbie,0,Mokytojas,Gamyba,0000,2026-04-22,1,0001,2024-09-19,-1,0002,2024-06-19,1
+169,Lianne,Severwright,0,Konsultantas,IT,0000,2024-09-28,0,0001,2023-10-31,0,0002,2024-01-14,-1
+170,Idell,Gollin,1,Konsultantas,Logistika,0000,2025-09-27,1,0001,2025-07-07,1,0002,2023-06-20,-1
+171,Luise,Maly,1,Mokytojas,IT,0000,2024-02-11,-1,0001,2026-02-10,1,0002,2023-12-08,-1
+172,Amber,Trett,0,Vairuotojas,Logistika,0000,2025-12-15,-1,0001,2025-12-13,-1,0002,2024-01-10,0
+173,Willdon,Rubra,1,Direktorius,Logistika,0000,2024-02-08,0,0001,2024-11-15,0,0002,2023-07-21,0
+174,Bail,Bushill,1,Mokytojas,Logistika,0000,2024-07-13,0,0001,2023-11-05,-1,0002,2023-06-22,-1
+175,Kenneth,Casassa,1,Operatorius,Gamyba,0000,2025-02-21,-1,0001,2023-05-09,1,0002,2025-03-24,-1
+176,Mara,Wardale,1,Padavėjas,Logistika,0000,2024-07-07,-1,0001,2024-08-09,-1,0002,2023-11-18,-1
+177,Anne-corinne,Swidenbank,1,Mokytojas,Gamyba,0000,2026-02-06,1,0001,2026-02-20,0,0002,2024-12-16,0
+178,Locke,Gilligan,0,Vairuotojas,IT,0000,2026-10-19,-1,0001,2026-01-21,-1,0002,2023-07-07,-1
+179,Hashim,Alliott,0,Vadybininkas,Gamyba,0000,2024-11-29,-1,0001,2024-01-25,-1,0002,2023-05-20,-1
+180,Eachelle,Petyakov,0,Operatorius,Gamyba,0000,2024-11-26,0,0001,2025-08-12,-1,0002,2024-01-07,0
+181,Avictor,Etherson,0,Vadybininkas,Gamyba,0000,2025-01-17,1,0001,2025-09-20,1,0002,2024-08-25,-1
+182,Milly,Lanston,1,Mokytojas,Logistika,0000,2026-04-04,0,0001,2023-07-15,1,0002,2024-03-29,1
+183,Wilfred,Fillary,1,Operatorius,IT,0000,2026-06-23,1,0001,2025-06-07,-1,0002,2024-06-05,0
+184,Gabriela,Wohlers,1,Mokytojas,Klientų aptarnavimas,0000,2026-08-22,-1,0001,2025-11-27,1,0002,2024-05-29,0
+185,Odilia,Woodhall,0,Konsultantas,Gamyba,0000,2024-03-15,1,0001,2024-07-31,-1,0002,2025-02-20,1
+186,Libbie,Atte-Stone,0,Direktorius,Logistika,0000,2024-12-07,0,0001,2023-06-04,1,0002,2024-08-13,-1
+187,Harli,Carruth,0,Padavėjas,Gamyba,0000,2026-08-07,-1,0001,2023-12-10,1,0002,2024-04-06,1
+188,Sebastian,Vecard,1,Padavėjas,Logistika,0000,2024-06-23,-1,0001,2025-01-02,1,0002,2025-05-01,1
+189,Ximenes,Denyer,0,Operatorius,IT,0000,2024-08-26,1,0001,2023-07-07,-1,0002,2024-02-25,-1
+190,Ivar,Key,1,Mokytojas,IT,0000,2024-10-21,-1,0001,2025-10-07,0,0002,2023-05-29,-1
+191,Baryram,Mowson,0,Mokytojas,Logistika,0000,2025-03-09,1,0001,2023-09-23,0,0002,2024-06-15,-1
+192,Brinn,Blodg,1,Padavėjas,Logistika,0000,2025-06-21,0,0001,2024-02-21,0,0002,2025-03-29,1
+193,Horacio,Govenlock,0,Mokytojas,Klientų aptarnavimas,0000,2025-09-25,-1,0001,2026-02-04,0,0002,2024-07-11,-1
+194,Sophia,Gabala,0,Direktorius,Gamyba,0000,2025-10-28,1,0001,2026-01-07,-1,0002,2023-07-29,-1
+195,Andrus,Vitte,0,Konsultantas,Gamyba,0000,2024-06-12,1,0001,2025-02-24,-1,0002,2024-12-23,0
+196,Bevan,Villalta,1,Direktorius,Logistika,0000,2026-02-24,0,0001,2024-11-27,0,0002,2024-06-07,1
+197,Norton,Padillo,0,Direktorius,Gamyba,0000,2025-08-11,-1,0001,2025-12-28,-1,0002,2024-11-07,1
+198,Priscilla,Hubbocks,1,Vairuotojas,Gamyba,0000,2026-02-11,1,0001,2023-05-13,0,0002,2024-01-30,-1
+199,Julius,MacKilroe,0,Operatorius,IT,0000,2024-12-22,1,0001,2025-09-30,1,0002,2024-08-29,0
+200,Frankie,Hazelton,0,Konsultantas,Klientų aptarnavimas,0000,2025-06-26,-1,0001,2023-05-18,1,0002,2023-11-24,0
