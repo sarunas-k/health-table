@@ -19,8 +19,6 @@ health check records.
 PCs, mobile devices with various screen sizes that has
 web browsers which support JavaScript.
 
-### Assumptions and dependencies
-
 Special requirements
 --------------------
 
