@@ -1,6 +1,9 @@
 # Health Check Summary
 > **Vue / Typescript-based UI component**
-
+### This image file was the reference and the starting point:
+![Reference](https://batai.w5.lt/health-table/Healthchecksummary.png)
+Wrote these requirements for the task:
+---------
 General requirements
 --------------------
 User interface component which takes data from a local file
@@ -15,8 +18,6 @@ health check records.
 
 PCs, mobile devices with various screen sizes that has
 web browsers which support JavaScript.
-
-### Assumptions and dependencies
 
 Special requirements
 --------------------
