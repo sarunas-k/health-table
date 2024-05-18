@@ -4,7 +4,7 @@ import InputButton from './InputButton.vue'
 import { computed, ref } from 'vue';
 
 const store = useTableStore();
-const pages = computed(() => Math.ceil(store.allUsers.length / store.perPage));
+const pages = computed(() => store.allUsers.length > store.perPage ? Math.ceil(store.allUsers.length / store.perPage) : 1);
 const jumpToInput = ref('');
 function setPage() {
 	const pageFromInput = parseInt(jumpToInput.value);
@@ -26,20 +26,20 @@ function onClickShow(perPage: number) {
 </script>
 
 <template>
-	<div class="health-check-table-controls">
+	<div>
 		<div class="controls-box">
 			<div class="totals">
 				<strong>Total: </strong>{{ store.allUsers.length }}
 			</div>
 			<div class="pages">
 				<strong>Page {{ store.page }} / {{ pages }}</strong>
-				<InputButton icon="previous" :class="{ 'inactive': store.page < 2 }" :callback="() => store.page > 1 ? store.page-- : null" />
-				<InputButton icon="next" :class="{ 'inactive': store.page === pages }" :callback="() => store.page < pages ? store.page++ : null" />
+				<InputButton class="button-component" icon="previous" :class="{ 'inactive': store.page < 2 }" :callback="() => store.page > 1 ? store.page-- : null" />
+				<InputButton class="button-component" icon="next" :class="{ 'inactive': store.page === pages }" :callback="() => store.page < pages ? store.page++ : null" />
 			</div>
 			<div class="jump-to">
 				<strong>Jump to:</strong>
 				<input type="text" v-model="jumpToInput" class="page-number-input" />
-				<InputButton icon="corner" :callback="() => setPage()" :class="{ 'inactive': pages === 1 }" />
+				<InputButton class="button-component" icon="corner" :callback="() => setPage()" :class="{ 'inactive': pages === 1 }" />
 			</div>
 			<div class="page-entries-control">
 				<span><strong>Show:</strong></span>

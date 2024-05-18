@@ -6,6 +6,7 @@ import { CheckboxType } from '@/models/types/HealthTableTypes.mjs';
 import InputButton from './InputButton.vue';
 import { useTableStore } from '@/stores/tableStore';
 import { computed } from 'vue';
+defineEmits(['table-refresh']);
 
 const store = useTableStore();
 const visibleEntries = computed(() => {
@@ -14,17 +15,22 @@ const visibleEntries = computed(() => {
 
 	return store.allUsers.slice((store.page - 1) * store.perPage, (store.page * store.perPage));
 });
-function onHeaderCheck(value: boolean) {
-	for (let i = 0; i < store.allUsers.length; i++)
-		store.checkboxStates[store.allUsers[i].id] = { parent: value, checks: [ value, value, value ] };
-}
+// function onHeaderCheck(value: boolean) {
+// 	for (let i = 0; i < store.allUsers.length; i++)
+// 		store.checkboxStates[store.allUsers[i].id] = { parent: value, checks: [ value, value, value ] };
+// }
 </script>
 
 <template>
 	<div class="health-check-table table">
 		<header>
 			<div role="col">
-				<InputCheckbox :type="CheckboxType.Main" :icon="store && store.allChecked ? 'checkmark' : 'minus'" v-model="store.isHeadChecked" @update:model-value="onHeaderCheck" />
+				<InputCheckbox
+					class="checkbox-component"
+					:type="CheckboxType.Main"
+					:icon="store && store.allChecked ? 'checkmark' : 'minus'"
+					v-model="store.isHeadChecked"
+				/>
 			</div>
 			<div class="col-2" role="col">
 				Full name / Health check
@@ -48,11 +54,11 @@ function onHeaderCheck(value: boolean) {
 				Job title
 			</div>
 			<div role="col">
-				<InputButton icon="refresh" :callback="() => console.log('Refresh clicked')" />
+				<InputButton class="button-component" icon="refresh" :callback="() => $emit('table-refresh')" />
 			</div>
 		</header>
-		<HealthCheck v-for="(user, index) in visibleEntries" :user="user as any" :key="index" />
-		<HealthCheckTableControls />
+		<HealthCheck v-for="user in visibleEntries" :user="user as any" :key="user.id" />
+		<HealthCheckTableControls class="health-check-table-controls" />
 	</div>
 </template>
 

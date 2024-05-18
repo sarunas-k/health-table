@@ -2,8 +2,8 @@
 import InputCheckbox from './InputCheckbox.vue';
 import InputButton from './InputButton.vue';
 import StatusBadge from './StatusBadge.vue';
-import { CheckboxType, HealthCheckStatus, type IRecordCheckboxes, type IUser } from '@/models/types/HealthTableTypes.mjs';
-import { type PropType, type Ref, computed, ref } from 'vue';
+import { CheckboxType, HealthCheckStatus, type IUser } from '@/models/types/HealthTableTypes.mjs';
+import { type PropType, computed, ref } from 'vue';
 import { useTableStore } from '@/stores/tableStore';
 
 // Props
@@ -16,17 +16,16 @@ const props = defineProps({
 
 // Store
 const store = useTableStore();
-const checkboxStates: Ref<Array<IRecordCheckboxes>> = ref(store.checkboxStates);
 
-const allChecked = computed(() => !checkboxStates.value[props.user.id].checks.includes(false));
-const atLeastOneChecked = computed(() => checkboxStates.value[props.user.id].checks.includes(true));
+const allChecked = computed(() => !store.checkboxStates[props.user.id].checks.includes(false));
+const atLeastOneChecked = computed(() => store.checkboxStates[props.user.id].checks.includes(true));
 const validChecks = computed(() => props.user.healthChecks.filter((check) => check.status === HealthCheckStatus.Active).length);
 const userIdClass = computed(() => 'userid-' + props.user.id);
 
 // If parent checkbox is checked, check all checkboxes
 function onParentCheck(isChecked: boolean) {
-	if (checkboxStates.value)
-		checkboxStates.value[props.user.id] = {
+	if (store.checkboxStates)
+		store.checkboxStates[props.user.id] = {
 			parent: isChecked,
 			checks: [
 				isChecked,
@@ -41,25 +40,18 @@ function onParentCheck(isChecked: boolean) {
 //
 // 2. Same for main table header checkbox
 function onChildCheck() {
-	checkboxStates.value[props.user.id].parent = atLeastOneChecked.value;
+	store.checkboxStates[props.user.id].parent = atLeastOneChecked.value;
 	store.updateHeadCheckbox();
 }
 
 let isClosed = ref(true);
 
 function toggle(event: MouseEvent) {
-	console.log(event.target);
 	const target: HTMLElement = event.target as HTMLElement;
 	if (target === null)
 		return;
-	if (typeof target.localName !== 'undefined' && target.tagName !== 'label' && target.tagName !== 'input' && target.className !== 'more') {
+	if (typeof target.localName !== 'undefined' && target.tagName !== 'label' && target.tagName !== 'input' && target.className !== 'more')
 		isClosed.value = !isClosed.value;
-		const siblingChecks: HTMLDivElement = (event.currentTarget as HTMLElement).nextElementSibling as HTMLDivElement;
-		if (siblingChecks === null)
-			return;
-
-		siblingChecks.style.height = isClosed.value ? '0px' : siblingChecks.scrollHeight + 'px';
-	}
 }
 
 </script>
@@ -68,13 +60,14 @@ function toggle(event: MouseEvent) {
 	<div class="row-head" :class="userIdClass" @click="toggle">
 		<div role="row" class="col">
 			<InputCheckbox
+				class="checkbox-component"
 				:type="CheckboxType.Parent" :icon="allChecked ? 'checkmark' : 'minus'"
 				:user="user"
-				@update:model-value="onParentCheck" v-model="checkboxStates[user.id].parent"
+				@update:model-value="onParentCheck" v-model="store.checkboxStates[user.id].parent"
 			/>
 		</div>
 		<div class="col-2 col">
-			<InputButton :icon="isClosed ? 'down' : 'up'" />{{
+			<InputButton class="button-component" :icon="isClosed ? 'down' : 'up'" />{{
 				user.firstName + ' ' + user.lastName + ' (' + validChecks + '/3)' }}
 		</div>
 		<div></div>
@@ -84,21 +77,22 @@ function toggle(event: MouseEvent) {
 			{{ user.department }}
 		</div>
 		<div class="col">
-			<StatusBadge :value="user.status" />
+			<StatusBadge class="status-badge" :value="user.status" />
 		</div>
 		<div class="col">
 			{{ user.jobTitle }}
 		</div>
 		<div class="col">
-			<InputButton icon="more" />
+			<InputButton class="button-component more" icon="more" />
 		</div>
 	</div>
-	<div class="checks">
+	<div class="checks" :class="[userIdClass, { opened: !isClosed }]">
 		<div v-for="(check, index) in user.healthChecks" :key="index" :class="userIdClass" class="row">
 			<div role="row" class="col">
 				<InputCheckbox
-					:type="CheckboxType.Child" :user="user"
-					v-model="checkboxStates[user.id].checks[index]"
+					class="checkbox-component"
+					:type="CheckboxType.Child"
+					v-model="store.checkboxStates[user.id].checks[index]"
 					@update:model-value="onChildCheck"
 				/>
 			</div>
@@ -112,19 +106,22 @@ function toggle(event: MouseEvent) {
 				{{ check.dateTo }}
 			</div>
 			<div class="col">
-				<StatusBadge :value="check.status" />
+				<StatusBadge class="status-badge" :value="check.status" />
 			</div>
 			<div></div>
 			<div></div>
 			<div></div>
 			<div class="col">
-				<InputButton icon="more" class="more" />
+				<InputButton class="button-component more" icon="more" />
 			</div>
 		</div>
 	</div>
 </template>
 
 <style scoped>
+.opened {
+	height: 133px !important;
+}
 .hidden {
 	position: relative;
 	opacity: 0;

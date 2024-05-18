@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { computed, ref, type Ref } from 'vue';
+import { computed, ref, watch, type Ref } from 'vue';
 import type { IRecordCheckboxes, IUser } from '@/models/types/HealthTableTypes.mjs';
 import HealthTableLoader from '@/load';
 
@@ -12,7 +12,10 @@ export const useTableStore = defineStore('users', () => {
     const isLoaded: Ref<boolean> = ref(false);
     const atLeastOneChecked = computed(() => isLoaded.value && checkboxStates.value.find((group) => group.parent === true) ? true : false);
     const allChecked = computed(() => isLoaded.value && checkboxStates.value.find((group) => group.parent === false) ? false : true);
-
+    watch(isHeadChecked, (value) => {
+        for (let i = 0; i < allUsers.value.length; i++)
+            checkboxStates.value[allUsers.value[i].id] = { parent: value, checks: [ value, value, value ] };
+    });
     function addUser(user: IUser) {
             user.id = parseInt(allUsers.value.length.toString());
 

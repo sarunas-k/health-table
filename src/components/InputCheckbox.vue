@@ -20,7 +20,7 @@ const checkedModel: ModelRef<Boolean> = defineModel() as ModelRef<Boolean>;
 
 <template>
 	<!-- Show checkbox icon when this checkbox is checked -->
-	<span class="checkbox-component" :class="{ all: checkedModel }">
+	<span :class="{ all: checkedModel }">
 		<label :style="{ maskImage: checkedModel ? `url(${iconsPath}/${icon}.svg)` : '' }">
 			<input
 				name="checkbox-name"
@@ -28,7 +28,6 @@ const checkedModel: ModelRef<Boolean> = defineModel() as ModelRef<Boolean>;
 				v-model="checkedModel" class="visually-hidden"
 			/>
 		</label>
-
 	</span>
 </template>
 

@@ -17,11 +17,7 @@ const props = defineProps({
 </script>
 
 <template>
-	<button
-		class="button-component"
-		:class="props.icon + '-icon'"
-		@click="props.callback"
-	>
+	<button :class="props.icon + '-icon'" @click="props.callback">
 		<span :style="{ maskImage: `url(${iconsPath}/${props.icon}.svg` }" :class="props.icon"></span>
 	</button>
 </template>
