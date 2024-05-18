@@ -5,7 +5,6 @@ import { createPinia, setActivePinia } from 'pinia';
 import { expect, beforeEach, describe, it } from 'vitest';
 import { setupServer } from 'msw/node';
 import { handlers } from '@/mocks/handlers';
-import { nextTick } from 'vue';
 describe('Health Table loader tests', () => {
     let loader: IHealthTableLoader;
     let server;
