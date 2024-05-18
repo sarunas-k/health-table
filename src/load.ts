@@ -22,18 +22,15 @@ export default class HealthTableLoader implements IHealthTableLoader {
   }
 
   // Get user data from specified file. Format of 15 columns, each row describes one entry
-  load(path: string) {
-    const request = new Request(path);
+  async load(path: string) {
     try {
-      fetch(request)
-        .then((response) => response.text())
-        .then((value) => {
-          const lines = value.split("\n");
-          HealthTableLoader.count = lines.length - 3;
-          this.parseUsers(lines);
-        });
-    } catch {
-      throw new Error("Couldn't get the data with user information.");
+      const response = await fetch(new Request(path));
+      const text = await response.text();
+      const lines = text.split("\n");
+      HealthTableLoader.count = lines.length - 3;
+      this.parseUsers(lines);
+    } catch (error) {
+      this.store.error.value = <TypeError>error;
     }
   }
 

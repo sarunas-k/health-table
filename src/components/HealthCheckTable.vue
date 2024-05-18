@@ -6,30 +6,38 @@ import { CheckboxType } from '@/models/types/HealthTableTypes.mjs';
 import InputButton from './InputButton.vue';
 import { useTableStore } from '@/stores/tableStore';
 import { computed } from 'vue';
+import { storeToRefs } from 'pinia';
 defineEmits(['table-refresh']);
 
-const store = useTableStore();
-const visibleEntries = computed(() => {
-	if (store.page === 1)
-		return store.allUsers.slice(0, store.perPage);
+const { allUsers, perPage, page, checkboxStates, isLoaded, error, isHeadChecked, allChecked } = storeToRefs(useTableStore());
 
-	return store.allUsers.slice((store.page - 1) * store.perPage, (store.page * store.perPage));
+const visibleEntries = computed(() => {
+	if (page.value === 1)
+		return allUsers.value.slice(0, perPage.value);
+
+	return allUsers.value.slice((page.value - 1) * perPage.value, (page.value * perPage.value));
 });
-// function onHeaderCheck(value: boolean) {
-// 	for (let i = 0; i < store.allUsers.length; i++)
-// 		store.checkboxStates[store.allUsers[i].id] = { parent: value, checks: [ value, value, value ] };
-// }
+function onHeaderCheck(value: boolean) {
+	for (let i = 0; i < allUsers.value.length; i++)
+		checkboxStates.value[allUsers.value[i].id] = { parent: value, checks: [ value, value, value ] };
+}
 </script>
 
 <template>
 	<div class="health-check-table table">
-		<header>
+		<div :class="{ hidden: isLoaded }">
+			<h2>
+				{{ error ? error : 'Loading your data...' }}
+			</h2>
+		</div>
+		<header v-if="isLoaded">
 			<div role="col">
 				<InputCheckbox
 					class="checkbox-component"
 					:type="CheckboxType.Main"
-					:icon="store && store.allChecked ? 'checkmark' : 'minus'"
-					v-model="store.isHeadChecked"
+					:icon="allChecked ? 'checkmark' : 'minus'"
+					v-model="isHeadChecked"
+					@update:model-value="onHeaderCheck"
 				/>
 			</div>
 			<div class="col-2" role="col">
@@ -58,7 +66,7 @@ const visibleEntries = computed(() => {
 			</div>
 		</header>
 		<HealthCheck v-for="user in visibleEntries" :user="user as any" :key="user.id" />
-		<HealthCheckTableControls class="health-check-table-controls" />
+		<HealthCheckTableControls v-if="isLoaded" class="health-check-table-controls" />
 	</div>
 </template>
 
@@ -87,5 +95,12 @@ div[role=col] {
 	&:last-child {
 		border-right: 0;
 	}
+}
+h2 {
+	text-align: center;
+	color: #CCCCCC;
+}
+.hidden {
+	display: none;
 }
 </style>
