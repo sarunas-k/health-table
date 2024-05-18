@@ -1,7 +1,6 @@
 import { config, mount } from '@vue/test-utils';
 import InputButton from '@/components/InputButton.vue';
-import { test, expect } from 'vitest';
-import { describe } from 'node:test';
+import { test, expect, describe } from 'vitest';
 
 config.global.stubs = { InputButton };
 config.global.mocks = { iconsPath: '' };
