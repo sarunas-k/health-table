@@ -23,6 +23,7 @@ describe('HealthCheck tests', () => {
 					createTestingPinia({
 						initialState: {
 							users: {
+								isLoaded: true,
 								checkboxStates: [
 									{
 										parent: false,
@@ -114,6 +115,7 @@ describe('HealthCheck tests', () => {
 					createTestingPinia({
 						initialState: {
 							users: {
+								isLoaded: true,
 								checkboxStates: [
 									{
 										parent: false,

@@ -12,6 +12,7 @@ describe('HealthCheckTable tests', () => {
                 plugins: [createTestingPinia({
                     initialState: {
                         users: {
+                            isLoaded: true,
                             allUsers: [{},{}],
                             checkboxStates: [ { parent: false, checks: [false, false, false] } ]
                         }
@@ -36,7 +37,13 @@ describe('HealthCheckTable tests', () => {
     test('refresh button callback test', () => {
         const wrapper = mount(HealthCheckTable, {
             global: {
-                plugins: [createTestingPinia()],
+                plugins: [createTestingPinia({
+                    initialState: {
+                        users: {
+                            isLoaded: true
+                        }
+                    }
+                })],
             },
         });
         wrapper.get('.button-component.refresh-icon').trigger('click');
@@ -49,6 +56,7 @@ describe('HealthCheckTable tests', () => {
                 plugins: [createTestingPinia({
                     initialState: {
                         users: {
+                            isLoaded: true,
                             isHeadChecked: false,
                             allUsers: [mockUser],
                             checkboxStates: [{ parent: false, checks: [ false, false, false ] }]

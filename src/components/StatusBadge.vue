@@ -2,7 +2,7 @@
 
 const props = defineProps({
 	value: {
-		validator: (val) => { return ['active', 'valid', 'inactive', 'expired', 'cancelled'].includes(val) },
+		validator: (val: string) => { return ['active', 'valid', 'inactive', 'expired', 'cancelled'].includes(val) },
 		type: String,
 		required: true
 	}

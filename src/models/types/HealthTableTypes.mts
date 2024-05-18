@@ -47,7 +47,8 @@ export interface IUserStore extends StoreDefinition<'users'> {
   checkboxStates: Ref<Array<IRecordCheckboxes>>,
   atLeastOneChecked: Ref<boolean>,
   allChecked: Ref<boolean>,
-  updateHeadCheckbox: () => void
+  updateHeadCheckbox: () => void,
+  error: Ref<null|TypeError>
 }
 
 export enum UserStatus {

@@ -2,25 +2,26 @@
 import { useTableStore } from '@/stores/tableStore';
 import InputButton from './InputButton.vue'
 import { computed, ref } from 'vue';
+import { storeToRefs } from 'pinia';
 
-const store = useTableStore();
-const pages = computed(() => store.allUsers.length > store.perPage ? Math.ceil(store.allUsers.length / store.perPage) : 1);
+const { perPage, allUsers, page } = storeToRefs(useTableStore());
+const pages = computed(() => allUsers.value.length > perPage.value ? Math.ceil(allUsers.value.length / perPage.value) : 1);
 const jumpToInput = ref('');
 function setPage() {
 	const pageFromInput = parseInt(jumpToInput.value);
 	if (Number.isInteger(pageFromInput) && pageFromInput >= 1 && pageFromInput <= pages.value)
-		store.page = pageFromInput;
+		page.value = pageFromInput;
 	else
 		jumpToInput.value = '';
 }
 
-function onClickShow(perPage: number) {
-	if (perPage === 50 && store.allUsers.length < 25)
+function onClickShow(val: number) {
+	if (val === 50 && allUsers.value.length < 25)
 		return;
-	if (perPage === 100 && store.allUsers.length < 50)
+	if (val === 100 && allUsers.value.length < 50)
 		return;
-	store.perPage = perPage;
-	store.page = 1;
+	perPage.value = val;
+	page.value = 1;
 }
 
 </script>
@@ -29,12 +30,12 @@ function onClickShow(perPage: number) {
 	<div>
 		<div class="controls-box">
 			<div class="totals">
-				<strong>Total: </strong>{{ store.allUsers.length }}
+				<strong>Total: </strong>{{ allUsers.length }}
 			</div>
 			<div class="pages">
-				<strong>Page {{ store.page }} / {{ pages }}</strong>
-				<InputButton class="button-component" icon="previous" :class="{ 'inactive': store.page < 2 }" :callback="() => store.page > 1 ? store.page-- : null" />
-				<InputButton class="button-component" icon="next" :class="{ 'inactive': store.page === pages }" :callback="() => store.page < pages ? store.page++ : null" />
+				<strong>Page {{ page }} / {{ pages }}</strong>
+				<InputButton class="button-component" icon="previous" :class="{ 'inactive': page < 2 }" :callback="() => page > 1 ? page-- : null" />
+				<InputButton class="button-component" icon="next" :class="{ 'inactive': page === pages }" :callback="() => page < pages ? page++ : null" />
 			</div>
 			<div class="jump-to">
 				<strong>Jump to:</strong>
@@ -43,13 +44,13 @@ function onClickShow(perPage: number) {
 			</div>
 			<div class="page-entries-control">
 				<span><strong>Show:</strong></span>
-				<button class="page-entries-btn" :class="{ 'active': store.perPage === 25 }" @click="onClickShow(25)">
+				<button class="page-entries-btn" :class="{ 'active': perPage === 25 }" @click="onClickShow(25)">
 					25
 				</button>
-				<button class="page-entries-btn" :class="{ 'active': store.perPage === 50, 'inactive': store.allUsers.length < 25 }" @click="onClickShow(50)">
+				<button class="page-entries-btn" :class="{ 'active': perPage === 50, 'inactive': allUsers.length < 25 }" @click="onClickShow(50)">
 					50
 				</button>
-				<button class="page-entries-btn" :class="{ 'active': store.perPage === 100, 'inactive': store.allUsers.length < 50 }" @click="onClickShow(100)">
+				<button class="page-entries-btn" :class="{ 'active': perPage === 100, 'inactive': allUsers.length < 50 }" @click="onClickShow(100)">
 					100
 				</button>
 			</div>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import HealthCheckTable from './HealthCheckTable.vue';
+
 </script>
 
 <template>
