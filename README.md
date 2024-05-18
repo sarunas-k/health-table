@@ -1,5 +1,5 @@
 # Health Check Summary
-> **Vue / Typescript-based UI component**
+> **Vue 3.4 / Typescript-based UI component**
 ### This image file was the reference and the starting point:
 ![Reference](https://batai.w5.lt/health-table/Healthchecksummary.png)
 Wrote these requirements for the task:
