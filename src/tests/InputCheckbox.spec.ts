@@ -1,7 +1,6 @@
 import { config, mount } from '@vue/test-utils';
 import InputCheckbox from '@/components/InputCheckbox.vue';
-import { test, expect, beforeEach } from 'vitest';
-import { describe } from 'node:test';
+import { test, expect, beforeEach, describe } from 'vitest';
 import type { ComponentOptions } from 'vue';
 
 config.global.stubs = { InputCheckbox };
