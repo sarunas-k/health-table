@@ -14,6 +14,7 @@ export default defineConfig({
   },
   server: {
     open: './index.html',
+    host: '127.0.0.1'
   },
   optimizeDeps: {
     include: ['./src/components/**/*.vue']
