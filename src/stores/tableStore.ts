@@ -4,7 +4,6 @@ import type {
 	IRecordCheckboxes,
 	IUser,
 } from '@/models/types/HealthTableTypes.mjs';
-import HealthTableLoader from '@/load';
 
 export const useTableStore = defineStore('users', () => {
 	const allUsers: Ref<Array<IUser>> = ref(new Array<IUser>());
@@ -13,31 +12,61 @@ export const useTableStore = defineStore('users', () => {
 	const page = ref(1);
 	const isHeadChecked: Ref<boolean> = ref(false);
 	const isLoaded: Ref<boolean> = ref(false);
-	const error = ref(null);
-	const atLeastOneChecked = computed(() =>
-		isLoaded.value &&
-		checkboxStates.value.find((group) => group.parent === true)
-			? true
-			: false
-	);
-	const allChecked = computed(() =>
-		isLoaded.value &&
-		checkboxStates.value.find((group) => group.parent === false)
-			? false
-			: true
-	);
+	const error = ref('');
+	const fetchedRows = ref(0);
+	const length = ref(0);
+	const atLeastOneChecked = computed(() => {
+		if (!isLoaded.value)
+			return false;
+
+		// True, when one or more parent checkboxes is checked
+		// False, when all are not checked
+		if (checkboxStates.value
+				.filter(function(group) { return typeof group !== 'undefined' })
+				.find((function(group) { return group.parent === true }))
+			) return true
+		else
+			return false;
+
+	});
+	const allChecked = computed(() => {
+		if (!isLoaded.value)
+			return false;
+
+		// True, when every parent checkbox is checked
+		// False, when one or more parent checkboxes aren't checked
+		return !(checkboxStates.value
+				.filter(function(group) { return typeof group !== 'undefined' })
+				.find((function(group) { return (group.parent === false || group.checks.includes(false))  })));
+
+	});
+
+	function setLoaded(value: boolean) {
+		isLoaded.value = value;
+		console.log('Loaded:', value);
+	}
+
+	function setLength(value: number) {
+		length.value = value;
+		console.log('Length:', value);
+	}
+
+	function setError(value: string) {
+		error.value = value;
+		console.log('Error:', value);
+	}
+
+	function getUser(id: number) {
+		return allUsers.value[id];
+	}
 
 	function addUser(user: IUser) {
-		user.id = parseInt(allUsers.value.length.toString());
-
 		checkboxStates.value[user.id] = {
 			parent: false,
 			checks: [false, false, false],
 		};
 		allUsers.value.push(user);
-
-		if (allUsers.value.length === HealthTableLoader.count)
-			isLoaded.value = true;
+		fetchedRows.value++;
 	}
 
 	function updateHeadCheckbox() {
@@ -62,6 +91,12 @@ export const useTableStore = defineStore('users', () => {
 		perPage,
 		page,
 		isLoaded,
-		error
+		error,
+		fetchedRows,
+		setLoaded,
+		setLength,
+		setError,
+		length,
+		getUser
 	};
 });

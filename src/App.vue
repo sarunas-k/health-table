@@ -1,12 +1,8 @@
 <script setup lang="ts">
 import HealthCheckSummary from './components/HealthCheckSummary.vue';
+import { type Ref, ref } from 'vue';
+import type { IHealthTableLoader } from './models/types/HealthTableTypes.mjs';
 import HealthTableLoader from './load';
-import type { IUserStore } from './models/types/HealthTableTypes.mjs';
-import { useTableStore } from './stores/tableStore';
-
-// Initialize users data and load to store
-new HealthTableLoader(useTableStore() as IUserStore | any)
-	.load('./health-db/db.csv');
 
 </script>
 
@@ -17,3 +13,6 @@ new HealthTableLoader(useTableStore() as IUserStore | any)
 </template>
 
 <style scoped></style>
+<script lang="ts">
+export const tblLoader: Ref<IHealthTableLoader|any> = ref({});
+</script>

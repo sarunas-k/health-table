@@ -1,27 +1,59 @@
 <script setup lang="ts">
 import { useTableStore } from '@/stores/tableStore';
 import InputButton from './InputButton.vue'
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { storeToRefs } from 'pinia';
+import { tblLoader } from '@/App.vue';
+import { type IHealthTableLoader } from '@/models/types/HealthTableTypes.mjs';
 
-const { perPage, allUsers, page } = storeToRefs(useTableStore());
-const pages = computed(() => allUsers.value.length > perPage.value ? Math.ceil(allUsers.value.length / perPage.value) : 1);
+const { perPage, page, length, fetchedRows } = storeToRefs(useTableStore());
+const pages = computed(() => length.value > perPage.value ? Math.ceil(length.value / perPage.value) : 1);
 const jumpToInput = ref('');
 function setPage() {
 	const pageFromInput = parseInt(jumpToInput.value);
-	if (Number.isInteger(pageFromInput) && pageFromInput >= 1 && pageFromInput <= pages.value)
+	if (Number.isInteger(pageFromInput) && pageFromInput >= 1 && pageFromInput <= pages.value) {
+		const needsToShow = pageFromInput * perPage.value;
+		if (fetchedRows.value < needsToShow)
+			fetchEmpty(needsToShow);
 		page.value = pageFromInput;
+	}
 	else
 		jumpToInput.value = '';
 }
 
 function onClickShow(val: number) {
-	if (val === 50 && allUsers.value.length < 25)
+	if (val === 50 && length.value <= 25)
 		return;
-	if (val === 100 && allUsers.value.length < 50)
+	if (val === 100 && length.value <= 50)
 		return;
 	perPage.value = val;
 	page.value = 1;
+	if (fetchedRows.value < val)
+		fetchEmpty(val);
+}
+
+async function fetchEmpty(needsToShow: number) {
+	if (needsToShow)
+	try {
+		await (tblLoader.value as IHealthTableLoader).load(fetchedRows.value, needsToShow - fetchedRows.value);
+	} catch(error) {
+		console.log('Error fetching rows:', error);
+	}
+}
+
+function previousPage() {
+	if (page.value > 1)
+		page.value--;
+}
+
+function nextPage() {
+	if (page.value < pages.value) {
+		const needsToShow = (page.value + 1) * perPage.value;
+		if (fetchedRows.value < needsToShow)
+			fetchEmpty(needsToShow);
+
+		page.value ++;
+	}
 }
 
 </script>
@@ -30,27 +62,45 @@ function onClickShow(val: number) {
 	<div>
 		<div class="controls-box">
 			<div class="totals">
-				<strong>Total: </strong>{{ allUsers.length }}
+				<strong>Total: </strong>{{ length }}
 			</div>
 			<div class="pages">
 				<strong>Page {{ page }} / {{ pages }}</strong>
-				<InputButton class="button-component" icon="previous" :class="{ 'inactive': page < 2 }" :callback="() => page > 1 ? page-- : null" />
-				<InputButton class="button-component" icon="next" :class="{ 'inactive': page === pages }" :callback="() => page < pages ? page++ : null" />
+				<InputButton
+					class="button-component" icon="previous"
+					:class="{ 'inactive': page < 2 }"
+					:callback="() => previousPage()"
+				/>
+				<InputButton
+					class="button-component" icon="next"
+					:class="{ 'inactive': page === pages }"
+					:callback="() => nextPage()"
+				/>
 			</div>
 			<div class="jump-to">
 				<strong>Jump to:</strong>
 				<input type="text" v-model="jumpToInput" class="page-number-input" />
-				<InputButton class="button-component" icon="corner" :callback="() => setPage()" :class="{ 'inactive': pages === 1 }" />
+				<InputButton
+					class="button-component" icon="corner"
+					:callback="() => setPage()"
+					:class="{ 'inactive': pages === 1 }"
+				/>
 			</div>
 			<div class="page-entries-control">
 				<span><strong>Show:</strong></span>
 				<button class="page-entries-btn" :class="{ 'active': perPage === 25 }" @click="onClickShow(25)">
 					25
 				</button>
-				<button class="page-entries-btn" :class="{ 'active': perPage === 50, 'inactive': allUsers.length < 25 }" @click="onClickShow(50)">
+				<button
+					class="page-entries-btn" :class="{ 'active': perPage === 50, 'inactive': length <= 25 }"
+					@click="onClickShow(50)"
+				>
 					50
 				</button>
-				<button class="page-entries-btn" :class="{ 'active': perPage === 100, 'inactive': allUsers.length < 50 }" @click="onClickShow(100)">
+				<button
+					class="page-entries-btn" :class="{ 'active': perPage === 100, 'inactive': length <= 50 }"
+					@click="onClickShow(100)"
+				>
 					100
 				</button>
 			</div>

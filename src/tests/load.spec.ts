@@ -16,7 +16,7 @@ describe('Health Table loader tests', () => {
         store = useTableStore();
 
 		loader = new HealthTableLoader(<any>store);
-        loader.load('http://localhost/health-db/db.csv');
+        loader.load();
 	});
 	it('parses data correctly', () => {
         console.log(store.allUsers);

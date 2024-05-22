@@ -59,7 +59,7 @@ function toggle(event: MouseEvent) {
 </script>
 
 <template>
-	<div v-if="isLoaded" class="row-head" :class="userIdClass" @click="toggle">
+	<div class="row-head" :class="[ userIdClass, { waiting: !isLoaded} ]" @click="toggle">
 		<div role="row" class="col">
 			<InputCheckbox
 				class="checkbox-component"
@@ -121,6 +121,15 @@ function toggle(event: MouseEvent) {
 </template>
 
 <style scoped>
+.waiting::after {
+	background-color: rgba(255, 255, 255, 0.5);
+	position: absolute;
+	content: ' ';
+	width: 100%;
+	height: 100%;
+	pointer-events: unset;
+}
+
 .opened {
 	height: 130px !important;
 }

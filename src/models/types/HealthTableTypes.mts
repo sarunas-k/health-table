@@ -31,8 +31,7 @@ export type IUserRawData = {
 
 export interface IHealthTableLoader {
   store: IUserStore;
-  count?: number;
-  load: (path: string) => void;
+  load: (from?: number, length?: number) => void;
   parseUser: (line: string, index: number) => void;
   parseUsers: (lines: string[]) => void;
 }
@@ -48,7 +47,13 @@ export interface IUserStore extends StoreDefinition<'users'> {
   atLeastOneChecked: Ref<boolean>,
   allChecked: Ref<boolean>,
   updateHeadCheckbox: () => void,
-  error: Ref<null|TypeError>
+  error: Ref<null|TypeError>,
+  fetchedRows: Ref<number>,
+  setLoaded: (value: boolean) => void;
+  setLength: (value: number) => void;
+  setError: (error: string) => void;
+  getUser: (id: number) => IUser;
+  length: Ref<number>
 }
 
 export enum UserStatus {

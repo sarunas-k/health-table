@@ -18,9 +18,10 @@ describe('HealthCheckTableControls tests', () => {
 					createTestingPinia({
 						initialState: {
 							users: {
-								allUsers: [{}, {}],
+								allUsers: [{id: 0}, {id: 1}],
 								perPage: 50,
-                                page: 1
+                                page: 1,
+								length: 2,
 							},
 						},
 					}),
