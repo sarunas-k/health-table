@@ -6,8 +6,8 @@ Wrote these requirements for the task:
 ---------
 General requirements
 --------------------
-User interface component which takes data from a local file
-and displays it in table format.
+User interface component which makes authorized request to get protected 
+data from REST stateless Api, then parses and displays it in a table. 
 
 ### User description
 
@@ -30,7 +30,7 @@ Special requirements
 5. Flat data in row as input
 6. Responds to screen size
 7. Show popup when "more" is clicked
-8. First and last columns stay fixed to sides
+8. Outer columns stick to sides
 9. Support small screens
 10. Display in pages of 25, 50, 100
 
