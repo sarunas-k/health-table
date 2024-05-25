@@ -1,6 +1,10 @@
 # Health Check Summary
-> **Vue 3.4 / Typescript-based UI component**
-### This image file was the reference and the starting point:
+> **Vue 3.4 UI component** (src/components)
+
+> **Vitest unit tests** (src/tests)
+ 
+> **Laravel stateless API** ([github.com/sarunas-k/health-table-restapi](https://github.com/sarunas-k/health-table-restapi))
+### In the beginning there was this image. It was the reference:
 ![Reference](https://batai.w5.lt/health-table/Healthchecksummary.png)
 Wrote these requirements for the task:
 ---------
