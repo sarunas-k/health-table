@@ -1,5 +1,5 @@
 # Smart Table Application
- This smart table application was built using Laravel and Vue.js. It has intuitive and organized user interface which is populated with data from CSRF protected Laravel application, which ensures security. This document describes features of this application. The application is hosted live: ([github.com/sarunas-k/health-table-restapi](https://github.com/sarunas-k/health-table-restapi))
+ This smart table application was built using Laravel and Vue.js. It has intuitive and organized user interface which is populated with data from CSRF protected Laravel application, which ensures security. This document describes features of this application.  
 
 ## REST API endpoints of the application
 <table class="table table-bordered">
@@ -45,6 +45,7 @@ Set-Cookie: laravel_session=eyJpdiI6IjMyS
 
 ### In the beginning there was this image. It was the reference:
 ![Reference](https://batai.w5.lt/health-table/Healthchecksummary.png)
+
 Wrote these requirements for the task:
 ---------
 General requirements
