@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useTableStore } from '@/stores/tableStore';
 import InputButton from './InputButton.vue'
-import { computed, ref, watch } from 'vue';
+import { computed, ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { tblLoader } from '@/App.vue';
 import { type IHealthTableLoader } from '@/models/types/HealthTableTypes.mjs';

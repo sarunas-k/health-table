@@ -34,7 +34,7 @@ function onParentCheck(isChecked: boolean) {
 				isChecked,
 				isChecked]
 		}
-		useTableStore().updateHeadCheckbox();
+	useTableStore().updateHeadCheckbox();
 }
 
 // 1. If one of child checkboxes is clicked, then check parent's
@@ -59,13 +59,12 @@ function toggle(event: MouseEvent) {
 </script>
 
 <template>
-	<div class="row-head" :class="[ userIdClass, { waiting: !isLoaded} ]" @click="toggle">
+	<div class="row-head" :class="[userIdClass, { waiting: !isLoaded }]" @click="toggle">
 		<div role="row" class="col">
 			<InputCheckbox
-				class="checkbox-component"
-				:type="CheckboxType.Parent" :icon="allChecked ? 'checkmark' : 'minus'"
-				:user="user"
-				@update:model-value="onParentCheck" v-model="checkboxStates[user.id].parent"
+				class="checkbox-component" :type="CheckboxType.Parent"
+				:icon="allChecked ? 'checkmark' : 'minus'" :user="user" @update:model-value="onParentCheck"
+				v-model="checkboxStates[user.id].parent"
 			/>
 		</div>
 		<div class="col-2 col">
@@ -92,10 +91,8 @@ function toggle(event: MouseEvent) {
 		<div v-for="(check, index) in user.healthChecks" :key="index" :class="userIdClass" class="row">
 			<div role="row" class="col">
 				<InputCheckbox
-					class="checkbox-component"
-					:type="CheckboxType.Child"
-					v-model="checkboxStates[user.id].checks[index]"
-					@update:model-value="onChildCheck"
+					class="checkbox-component" :type="CheckboxType.Child"
+					v-model="checkboxStates[user.id].checks[index]" @update:model-value="onChildCheck"
 				/>
 			</div>
 			<div class="col col-2">
@@ -133,6 +130,7 @@ function toggle(event: MouseEvent) {
 .opened {
 	height: 130px !important;
 }
+
 .hidden {
 	position: relative;
 	opacity: 0;

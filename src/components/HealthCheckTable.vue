@@ -9,17 +9,20 @@ import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 defineEmits(['table-refresh']);
 
-const { allUsers, perPage, page, checkboxStates, isLoaded, error, isHeadChecked, allChecked } = storeToRefs(useTableStore());
+const { allUsers, perPage, page, checkboxStates, isLoaded, error, isHeadChecked, allChecked } =
+	storeToRefs(useTableStore());
 
 const visibleEntries = computed(() => {
-	if (page.value === 1)
-		return allUsers.value.slice(0, perPage.value);
+	if (page.value === 1) return allUsers.value.slice(0, perPage.value);
 
-	return allUsers.value.slice((page.value - 1) * perPage.value, (page.value * perPage.value));
+	return allUsers.value.slice((page.value - 1) * perPage.value, page.value * perPage.value);
 });
 function onHeaderCheck(value: boolean) {
 	for (let i = 0; i < allUsers.value.length; i++)
-		checkboxStates.value[allUsers.value[i].id] = { parent: value, checks: [value, value, value] };
+		checkboxStates.value[allUsers.value[i].id] = {
+			parent: value,
+			checks: [value, value, value]
+		};
 }
 </script>
 
@@ -33,38 +36,33 @@ function onHeaderCheck(value: boolean) {
 		<header :class="{ waiting: !isLoaded }">
 			<div role="col">
 				<InputCheckbox
-					class="checkbox-component" :type="CheckboxType.Main"
-					:icon="allChecked ? 'checkmark' : 'minus'" v-model="isHeadChecked"
+					class="checkbox-component"
+					:type="CheckboxType.Main"
+					:icon="allChecked ? 'checkmark' : 'minus'"
+					v-model="isHeadChecked"
 					@update:model-value="onHeaderCheck"
 				/>
 			</div>
-			<div class="col-2" role="col">
-				Full name / Health check
-			</div>
+			<div class="col-2" role="col">Full name / Health check</div>
+			<div role="col">Code</div>
+			<div role="col">Expiration</div>
+			<div role="col">Status</div>
+			<div role="col">Department</div>
+			<div role="col">User status</div>
+			<div role="col">Job title</div>
 			<div role="col">
-				Code
-			</div>
-			<div role="col">
-				Expiration
-			</div>
-			<div role="col">
-				Status
-			</div>
-			<div role="col">
-				Department
-			</div>
-			<div role="col">
-				User status
-			</div>
-			<div role="col">
-				Job title
-			</div>
-			<div role="col">
-				<InputButton class="button-component" icon="refresh" :callback="() => $emit('table-refresh')" />
+				<InputButton
+					class="button-component"
+					icon="refresh"
+					:callback="() => $emit('table-refresh')"
+				/>
 			</div>
 		</header>
 		<HealthCheck v-for="user in visibleEntries" :user="user as any" :key="user.id" />
-		<HealthCheckTableControls :class="{ waiting: !isLoaded }" class="health-check-table-controls" />
+		<HealthCheckTableControls
+			:class="{ waiting: !isLoaded }"
+			class="health-check-table-controls"
+		/>
 	</div>
 </template>
 
@@ -92,7 +90,7 @@ header {
 	grid-template-columns: 1fr;
 }
 
-div[role=col] {
+div[role='col'] {
 	display: flex;
 	align-items: center;
 	border-right: 1px solid #e6e6e6;

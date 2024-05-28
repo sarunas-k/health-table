@@ -2,7 +2,7 @@ import { expect, beforeEach, describe, it } from 'vitest';
 import {
 	HealthCheckStatus,
 	HealthCheckTitle,
-	UserStatus,
+	UserStatus
 } from '@/models/types/HealthTableTypes.mjs';
 import { useTableStore } from '@/stores/tableStore';
 import { createPinia, setActivePinia } from 'pinia';
@@ -18,23 +18,23 @@ const defaultProps = {
 				title: HealthCheckTitle.Physical,
 				code: '0000',
 				dateTo: '2024-01-01',
-				status: HealthCheckStatus.Expired,
+				status: HealthCheckStatus.Expired
 			},
 			{
 				title: HealthCheckTitle.PC,
 				code: '0001',
 				dateTo: '2024-01-01',
-				status: HealthCheckStatus.Expired,
+				status: HealthCheckStatus.Expired
 			},
 			{
 				title: HealthCheckTitle.Emotional,
 				code: '0002',
 				dateTo: '2024-09-09',
-				status: HealthCheckStatus.Active,
-			},
+				status: HealthCheckStatus.Active
+			}
 		],
-		id: 0,
-	},
+		id: 0
+	}
 };
 describe('Table Store', () => {
 	beforeEach(() => {
@@ -69,7 +69,6 @@ describe('Table Store', () => {
 		store.checkboxStates[0] = { parent: true, checks: [true, true, true] };
 		store.checkboxStates[1] = { parent: true, checks: [true, true, true] };
 		expect(store.allChecked).toBeTruthy();
-
 	});
 
 	it('set user rows per page', () => {
@@ -79,5 +78,4 @@ describe('Table Store', () => {
 		store.setUsersPerPage(50);
 		expect(store.perPage).toEqual(50);
 	});
-
 });

@@ -2,7 +2,6 @@
 import HealthCheckSummary from './components/HealthCheckSummary.vue';
 import { type Ref, ref } from 'vue';
 import type { IHealthTableLoader } from './models/types/HealthTableTypes.mjs';
-import HealthTableLoader from './load';
 
 </script>
 

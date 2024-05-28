@@ -6,20 +6,20 @@ import { expect, beforeEach, describe, it } from 'vitest';
 import { setupServer } from 'msw/node';
 import { handlers } from '@/mocks/handlers';
 describe('Health Table loader tests', () => {
-    let loader: IHealthTableLoader;
-    let server;
-    let store: any;
+	let loader: IHealthTableLoader;
+	let server;
+	let store: any;
 	beforeEach(async () => {
-        server = setupServer(...handlers);
-        server.listen();
+		server = setupServer(...handlers);
+		server.listen();
 		setActivePinia(createPinia());
-        store = useTableStore();
+		store = useTableStore();
 
 		loader = new HealthTableLoader(<any>store);
-        loader.load();
+		loader.load();
 	});
 	it('parses data correctly', () => {
-        console.log(store.allUsers);
-            expect(store.allUsers.length).toEqual(0);
+		console.log(store.allUsers);
+		expect(store.allUsers.length).toEqual(0);
 	});
 });
