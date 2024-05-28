@@ -57,14 +57,14 @@ export interface IUserStore extends StoreDefinition<'users'> {
 }
 
 export enum UserStatus {
-  Active = "active",
-  Inactive = "inactive",
+  Active = "aktyvi",
+  Inactive = "neaktyvi",
 }
 
 export enum HealthCheckStatus {
-  Active = "valid",
-  Expired = "expired",
-  Cancelled = "cancelled",
+  Active = "galioja",
+  Expired = "baigėsi",
+  Cancelled = "negalioja",
 }
 
 export interface IHealthRecord {
@@ -84,9 +84,9 @@ export interface IRecordCheckboxes {
 }
 
 export enum HealthCheckTitle {
-  Emotional = "Psichinės sveikatos patikra",
-  Physical = "Fizinės sveikatos patikra",
-  PC = "Darbo prie kompiuterio pažyma",
+  Emotional = "Patikra 1",
+  Physical = "Patikra 2",
+  PC = "Patikra 3",
 }
 
 export enum BadgeType {

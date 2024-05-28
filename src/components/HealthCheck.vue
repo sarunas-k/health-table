@@ -151,6 +151,7 @@ function toggle(event: MouseEvent) {
 .row .col {
 	display: flex;
 	align-items: center;
+	margin-left: 1rem;
 }
 
 .checks {
