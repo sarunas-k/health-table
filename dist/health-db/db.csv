@@ -174,28 +174,3 @@ id,firstName,lastName,status,jobTitle,department,checkCode_1,expiration_1,checkS
 173,Willdon,Rubra,1,Direktorius,Logistika,0000,2024-02-08,0,0001,2024-11-15,0,0002,2023-07-21,0
 174,Bail,Bushill,1,Mokytojas,Logistika,0000,2024-07-13,0,0001,2023-11-05,-1,0002,2023-06-22,-1
 175,Kenneth,Casassa,1,Operatorius,Gamyba,0000,2025-02-21,-1,0001,2023-05-09,1,0002,2025-03-24,-1
-176,Mara,Wardale,1,Padavėjas,Logistika,0000,2024-07-07,-1,0001,2024-08-09,-1,0002,2023-11-18,-1
-177,Anne-corinne,Swidenbank,1,Mokytojas,Gamyba,0000,2026-02-06,1,0001,2026-02-20,0,0002,2024-12-16,0
-178,Locke,Gilligan,0,Vairuotojas,IT,0000,2026-10-19,-1,0001,2026-01-21,-1,0002,2023-07-07,-1
-179,Hashim,Alliott,0,Vadybininkas,Gamyba,0000,2024-11-29,-1,0001,2024-01-25,-1,0002,2023-05-20,-1
-180,Eachelle,Petyakov,0,Operatorius,Gamyba,0000,2024-11-26,0,0001,2025-08-12,-1,0002,2024-01-07,0
-181,Avictor,Etherson,0,Vadybininkas,Gamyba,0000,2025-01-17,1,0001,2025-09-20,1,0002,2024-08-25,-1
-182,Milly,Lanston,1,Mokytojas,Logistika,0000,2026-04-04,0,0001,2023-07-15,1,0002,2024-03-29,1
-183,Wilfred,Fillary,1,Operatorius,IT,0000,2026-06-23,1,0001,2025-06-07,-1,0002,2024-06-05,0
-184,Gabriela,Wohlers,1,Mokytojas,Klientų aptarnavimas,0000,2026-08-22,-1,0001,2025-11-27,1,0002,2024-05-29,0
-185,Odilia,Woodhall,0,Konsultantas,Gamyba,0000,2024-03-15,1,0001,2024-07-31,-1,0002,2025-02-20,1
-186,Libbie,Atte-Stone,0,Direktorius,Logistika,0000,2024-12-07,0,0001,2023-06-04,1,0002,2024-08-13,-1
-187,Harli,Carruth,0,Padavėjas,Gamyba,0000,2026-08-07,-1,0001,2023-12-10,1,0002,2024-04-06,1
-188,Sebastian,Vecard,1,Padavėjas,Logistika,0000,2024-06-23,-1,0001,2025-01-02,1,0002,2025-05-01,1
-189,Ximenes,Denyer,0,Operatorius,IT,0000,2024-08-26,1,0001,2023-07-07,-1,0002,2024-02-25,-1
-190,Ivar,Key,1,Mokytojas,IT,0000,2024-10-21,-1,0001,2025-10-07,0,0002,2023-05-29,-1
-191,Baryram,Mowson,0,Mokytojas,Logistika,0000,2025-03-09,1,0001,2023-09-23,0,0002,2024-06-15,-1
-192,Brinn,Blodg,1,Padavėjas,Logistika,0000,2025-06-21,0,0001,2024-02-21,0,0002,2025-03-29,1
-193,Horacio,Govenlock,0,Mokytojas,Klientų aptarnavimas,0000,2025-09-25,-1,0001,2026-02-04,0,0002,2024-07-11,-1
-194,Sophia,Gabala,0,Direktorius,Gamyba,0000,2025-10-28,1,0001,2026-01-07,-1,0002,2023-07-29,-1
-195,Andrus,Vitte,0,Konsultantas,Gamyba,0000,2024-06-12,1,0001,2025-02-24,-1,0002,2024-12-23,0
-196,Bevan,Villalta,1,Direktorius,Logistika,0000,2026-02-24,0,0001,2024-11-27,0,0002,2024-06-07,1
-197,Norton,Padillo,0,Direktorius,Gamyba,0000,2025-08-11,-1,0001,2025-12-28,-1,0002,2024-11-07,1
-198,Priscilla,Hubbocks,1,Vairuotojas,Gamyba,0000,2026-02-11,1,0001,2023-05-13,0,0002,2024-01-30,-1
-199,Julius,MacKilroe,0,Operatorius,IT,0000,2024-12-22,1,0001,2025-09-30,1,0002,2024-08-29,0
-200,Frankie,Hazelton,0,Konsultantas,Klientų aptarnavimas,0000,2025-06-26,-1,0001,2023-05-18,1,0002,2023-11-24,0

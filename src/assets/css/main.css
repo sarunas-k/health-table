@@ -119,6 +119,7 @@ header div:last-child,
 .row-head div[role=row],
 .row-head div:last-child {
   background-color: var(--color-secondary-green);
+  margin-left: 0 !important;
 }
 
 .row-head div:nth-child(2) {
