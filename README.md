@@ -44,7 +44,7 @@ Set-Cookie: laravel_session=eyJpdiI6IjMyS
   </tbody>
 </table>
 
-Input data before parsing
+Initial input data (CSV)
 ---
 ```
 id,firstName,lastName,status,jobTitle,department,checkCode_1,expiration_1,checkStatus_1,checkCode_2,expiration_2,checkStatus_2,checkCode_3,expiration_3,checkStatus_3
@@ -54,7 +54,7 @@ id,firstName,lastName,status,jobTitle,department,checkCode_1,expiration_1,checkS
 4,Linn,Woodfin,0,Vairuotojas,Klientų aptarnavimas,0000,2026-09-19,1,0001,2023-09-24,0,0002,2023-10-06,1
 5,Lizzie,Royan,1,Direktorius,Gamyba,0000,2025-05-23,-1,0001,2023-10-27,1,0002,2023-11-30,0
 ```
-This was the reference:
+Design image UI is based on
 ---
 
 ![Reference](https://batai.w5.lt/health-table/Healthchecksummary.png)
