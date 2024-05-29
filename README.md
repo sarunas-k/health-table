@@ -1,7 +1,8 @@
 # Smart Table Application
- This smart table application was built using Laravel and Vue.js. It has intuitive and organized user interface which is populated with data from CSRF protected Laravel application, which ensures security. This document describes features of this application.  
-
-## REST API endpoints of the application
+ This smart table application was built using Laravel and Vue.js. It has intuitive and organized user interface which is populated with data from CSRF protected Laravel application, which ensures security. This document describes application's features.
+ 
+![Table](https://applications.w5.lt/health-table/assets/images/Screenshot.png)
+## REST API endpoints
 <table class="table table-bordered">
   <tbody>
    <tr>
@@ -43,41 +44,55 @@ Set-Cookie: laravel_session=eyJpdiI6IjMyS
   </tbody>
 </table>
 
-### In the beginning there was this image. It was the reference:
+This was the reference:
+---
+
 ![Reference](https://batai.w5.lt/health-table/Healthchecksummary.png)
 
-Wrote these requirements for the task:
----------
 General requirements
---------------------
-User interface component which makes authorized request to get protected 
-data from REST stateless Api, then parses and displays it in a table. 
+---
+Application should display a table of employees' health check information. It should send a request to separate back-end application to receive data page by page when required, parse and format it correctly on the front-end. Connection to REST API should be secure and authenticated.
 
 ### User description
 
-Managers, administrative staff responsible for employees'
-health check records.
+Administrative staff responsible for employees' health check records with no mentionable computer knowledge.
 
 ### Operating environment
 
-PCs, mobile devices with various screen sizes that has
-web browsers which support JavaScript.
+Web browsers on PCs, phones and other screen devices.
 
 Special requirements
---------------------
+---
 
-```
-1. Collapse rows
-2. Change columns' width
-3. Accessible HTML
-4. (Un)check checkbox groups
-5. Flat data in row as input
-6. Responds to screen size
-7. Show popup when "more" is clicked
-8. Outer columns stick to sides
-9. Support small screens
-10. Display in pages of 25, 50, 100
+1. 	Groups of table rows (subrows)
+   
+2. 	Control table columns' width
+   
+3. 	Accessible HTML
+   
+4. 	Table rows' checkboxes works in groups
 
-```
+5. 	Receives raw flat data for input
+ 	
+6. 	Table adjusts to screen size
+ 	
+7. 	Outer table columns stick to sides when table width changes
+ 	
+8. 	Request only data that has to be displayed
+ 	
+9. 	Show 25, 50 or 100 rows per page
 
+User interface
+---
 
+Loading data
+
+![Table subrows](https://applications.w5.lt/health-table/assets/images/Screenshot-loading.png)
+
+Subrows visible after clicking on a row
+
+![Table subrows](https://applications.w5.lt/health-table/assets/images/Screenshot-opened.png)
+
+Side columns fixed to sides
+
+<img src="https://applications.w5.lt/health-table/assets/images/Screenshot-resized.png" alt="Table subrows" style="width: 700px" />
