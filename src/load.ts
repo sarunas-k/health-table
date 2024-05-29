@@ -13,7 +13,8 @@ import User from './models/User';
  */
 
 export default class HealthTableLoader implements IHealthTableLoader {
-	store: IUserStore;
+	private store: IUserStore;
+	private apiUrl: string = 'http://127.0.0.1:8000';
 
 	constructor(store: IUserStore) {
 		this.store = store;
@@ -28,9 +29,9 @@ export default class HealthTableLoader implements IHealthTableLoader {
 		try {
 			if (!this.store.isLoaded) {
 				// Initiate csrf cookie
-				await fetch('http://127.0.0.1:8000/sanctum/csrf-cookie', {
+				await fetch(`${this.apiUrl}/sanctum/csrf-cookie`, {
 					credentials: 'include',
-				}).catch((err) => new Error(err));
+				}).then((res) => res.json()).then((res) => console.log(res)).catch((err) => new Error(err));
 			}
 
 			// Get token from csrf cookie
@@ -41,7 +42,7 @@ export default class HealthTableLoader implements IHealthTableLoader {
 
 			if (!this.store.isLoaded) {
 				// Attempt to authenticate
-				await fetch('http://127.0.0.1:8000/api/login', {
+				await fetch(`${this.apiUrl}/api/login`, {
 					method: 'POST',
 					credentials: 'include',
 					headers: {
@@ -53,13 +54,13 @@ export default class HealthTableLoader implements IHealthTableLoader {
 						email: 'test@api.org',
 						password: 'test_api',
 					}),
-				}).catch((err) => new Error(err));
+				}).then((res) => res.json()).then((res) => console.log(res)).catch((err) => new Error(err));
 			}
 
 			// Start fetching data
 			let lines = [''];
 			let responseJson;
-			let targetUrl = 'http://127.0.0.1:8000/api/rows';
+			let targetUrl = `${this.apiUrl}/api/rows`;
 
 			if (typeof from !== 'undefined') {
 				if (typeof length === 'undefined') length = 0;
@@ -75,7 +76,7 @@ export default class HealthTableLoader implements IHealthTableLoader {
 					'X-XSRF-TOKEN': decodeURIComponent(xsrf.split('=')[1]),
 				},
 			})
-				.then((response) => response.json())
+				.then((response) => { console.log(response); return response.json()})
 				.then((value) => (responseJson = value))
 				.catch((err) => new Error(err))
 				.finally(() => {

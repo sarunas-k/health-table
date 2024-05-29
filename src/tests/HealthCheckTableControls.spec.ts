@@ -39,10 +39,10 @@ describe('HealthCheckTableControls tests', () => {
 		expect(wrapper.findAll('.page-entries-control')).toHaveLength(1);
 		expect(wrapper.findAll('.page-entries-btn')).toHaveLength(3);
 
-		expect(wrapper.get('.totals').text()).toContain('Total: 2');
-		expect(wrapper.get('.pages').text()).toContain('Page 1 / 1');
-		expect(wrapper.get('.jump-to').text()).toContain('Jump to:');
-		expect(wrapper.get('.page-entries-control').text()).toContain('Show: 25  50  100');
+		expect(wrapper.get('.totals').text()).toContain('Eilučių: 2');
+		expect(wrapper.get('.pages').text()).toContain('Puslapis 1 / 1');
+		expect(wrapper.get('.jump-to').text()).toContain('Eiti prie:');
+		expect(wrapper.get('.page-entries-control').text()).toContain('Rodoma: 25  50  100');
 		expect(wrapper.findAll('.page-entries-btn').at(0)?.classes()).not.toContain('active');
 		expect(wrapper.findAll('.page-entries-btn').at(1)?.classes()).toContain('active');
 		expect(wrapper.findAll('.page-entries-btn').at(2)?.classes()).not.toContain('active');
