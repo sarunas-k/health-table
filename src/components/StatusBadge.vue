@@ -2,12 +2,10 @@
 
 const props = defineProps({
 	value: {
-		validator: (val: string) => { return ['active', 'valid', 'inactive', 'expired', 'cancelled'].includes(val) },
 		type: String,
 		required: true
 	}
 });
-
 </script>
 
 <template>
@@ -24,13 +22,18 @@ span {
 	padding: 0 0.8rem;
 
 	&.active,
+	&.aktyvi,
+	&.galioja,
 	&.valid {
 		background-color: var(--color-badge-valid);
 	}
 	&.inactive,
+	&.baigėsi,
+	&.neaktyvi,
 	&.expired {
 		background-color: var(--color-badge-expired);
 	}
+	&.negalioja,
 	&.cancelled {
 		background-color: var(--color-badge-canceled);
 	}

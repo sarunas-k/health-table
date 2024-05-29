@@ -43,13 +43,13 @@ function onHeaderCheck(value: boolean) {
 					@update:model-value="onHeaderCheck"
 				/>
 			</div>
-			<div class="col-2" role="col">Full name / Health check</div>
-			<div role="col">Code</div>
-			<div role="col">Expiration</div>
-			<div role="col">Status</div>
-			<div role="col">Department</div>
-			<div role="col">User status</div>
-			<div role="col">Job title</div>
+			<div class="col-2" role="col">Vardas / Patikros</div>
+			<div role="col">Kodas</div>
+			<div role="col">Galiojimas</div>
+			<div role="col">Būsena</div>
+			<div role="col">Skyrius</div>
+			<div role="col">Anketa</div>
+			<div role="col">Pareigos</div>
 			<div role="col">
 				<InputButton
 					class="button-component"

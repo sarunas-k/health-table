@@ -30,7 +30,6 @@ export type IUserRawData = {
 };
 
 export interface IHealthTableLoader {
-  store: IUserStore;
   load: (from?: number, length?: number) => void;
   parseUser: (line: string, index: number) => void;
   parseUsers: (lines: string[]) => void;

@@ -62,10 +62,10 @@ function nextPage() {
 	<div>
 		<div class="controls-box">
 			<div class="totals">
-				<strong>Total: </strong>{{ length }}
+				<strong>Eilučių: </strong>{{ length }}
 			</div>
 			<div class="pages">
-				<strong>Page {{ page }} / {{ pages }}</strong>
+				<strong>Puslapis {{ page }} / {{ pages }}</strong>
 				<InputButton
 					class="button-component" icon="previous"
 					:class="{ 'inactive': page < 2 }"
@@ -78,7 +78,7 @@ function nextPage() {
 				/>
 			</div>
 			<div class="jump-to">
-				<strong>Jump to:</strong>
+				<strong>Eiti prie:</strong>
 				<input type="text" v-model="jumpToInput" class="page-number-input" />
 				<InputButton
 					class="button-component" icon="corner"
@@ -87,7 +87,7 @@ function nextPage() {
 				/>
 			</div>
 			<div class="page-entries-control">
-				<span><strong>Show:</strong></span>
+				<span><strong>Rodoma:</strong></span>
 				<button class="page-entries-btn" :class="{ 'active': perPage === 25 }" @click="onClickShow(25)">
 					25
 				</button>

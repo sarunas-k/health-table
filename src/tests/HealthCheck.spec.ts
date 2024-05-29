@@ -58,13 +58,13 @@ describe('HealthCheck tests', () => {
 		expect(wrapper.findAll('.row-head .col').at(2)?.text()).toMatch('Sandelys');
 		expect(wrapper.findAll('.row-head .col').at(4)?.text()).toMatch('Specialistas');
 		expect(wrapper.findAll('.checks .row.userid-0')).toHaveLength(3);
-		expect(wrapper.findAll('.checks .row:nth-child(1) .col').at(1)?.text()).toMatch('Fizinės sveikatos patikra');
+		expect(wrapper.findAll('.checks .row:nth-child(1) .col').at(1)?.text()).toMatch('Patikra 2');
 		expect(wrapper.findAll('.checks .row:nth-child(1) .col').at(2)?.text()).toMatch('0000');
 		expect(wrapper.findAll('.checks .row:nth-child(1) .col').at(3)?.text()).toMatch('2024-01-01');
-		expect(wrapper.findAll('.checks .row:nth-child(2) .col').at(1)?.text()).toMatch('Darbo prie kompiuterio pažyma');
+		expect(wrapper.findAll('.checks .row:nth-child(2) .col').at(1)?.text()).toMatch('Patikra 3');
 		expect(wrapper.findAll('.checks .row:nth-child(2) .col').at(2)?.text()).toMatch('0001');
 		expect(wrapper.findAll('.checks .row:nth-child(2) .col').at(3)?.text()).toMatch('2024-01-01');
-		expect(wrapper.findAll('.checks .row:nth-child(3) .col').at(1)?.text()).toMatch('Psichinės sveikatos patikra');
+		expect(wrapper.findAll('.checks .row:nth-child(3) .col').at(1)?.text()).toMatch('Patikra 1');
 		expect(wrapper.findAll('.checks .row:nth-child(3) .col').at(2)?.text()).toMatch('0002');
 		expect(wrapper.findAll('.checks .row:nth-child(3) .col').at(3)?.text()).toMatch('2024-09-09');
 	});

@@ -19,7 +19,7 @@ export default defineConfig({
   optimizeDeps: {
     include: ['./src/components/**/*.vue']
   },
-  base:'/',
+  base:'./',
   build: {
     watch: {},
     commonjsOptions: {
