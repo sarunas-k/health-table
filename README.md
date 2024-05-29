@@ -48,21 +48,20 @@ This was the reference:
 ---
 
 ![Reference](https://batai.w5.lt/health-table/Healthchecksummary.png)
-
-General requirements
+Requirements documentation
 ---
+### General requirements
 Application should display a table of employees' health check information. It should send a request to separate back-end application to receive data page by page when required, parse and format it correctly on the front-end. Connection to REST API should be secure and authenticated.
 
-### User description
+**User description**
 
 Administrative staff responsible for employees' health check records with no mentionable computer knowledge.
 
-### Operating environment
+**Operating environment**
 
 Web browsers on PCs, phones and other screen devices.
 
-Special requirements
----
+### Special requirements
 
 1. 	Groups of table rows (subrows)
    
@@ -82,7 +81,7 @@ Special requirements
  	
 9. 	Show 25, 50 or 100 rows per page
 
-User interface
+User interface documentation
 ---
 
 Loading data
