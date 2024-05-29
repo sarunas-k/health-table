@@ -1,6 +1,6 @@
 # Smart Table Application
  This smart table application was built using Laravel and Vue.js. It has intuitive and organized user interface which is populated with data from CSRF protected Laravel application, which ensures security. This document describes application's features.
- 
+
 ![Table](https://applications.w5.lt/health-table/assets/images/Screenshot.png)
 ## REST API endpoints
 <table class="table table-bordered">
@@ -44,6 +44,11 @@ Set-Cookie: laravel_session=eyJpdiI6IjMyS
   </tbody>
 </table>
 
+## Tests unit/component
+Application has automated tests built with Vitest. Run all tests:
+```
+npm run test:unit
+```
 Initial input data (CSV)
 ---
 ```
