@@ -1,7 +1,6 @@
 # Smart Table Application
  This smart table application was built using Laravel and Vue.js. It has intuitive and organized user interface which is populated with data from CSRF protected Laravel application, which ensures security. This document describes application's features.
 
-![Table](https://applications.w5.lt/health-table/assets/images/Screenshot.png)
 ## REST API endpoints
 <table class="table table-bordered">
   <tbody>
@@ -95,18 +94,3 @@ Web browsers on PCs, phones and other screen devices.
 8. 	Request only data that has to be displayed
  	
 9. 	Show 25, 50 or 100 rows per page
-
-User interface documentation
----
-
-Loading data
-
-![Table subrows](https://applications.w5.lt/health-table/assets/images/Screenshot-loading.png)
-
-Subrows visible after clicking on a row
-
-![Table subrows](https://applications.w5.lt/health-table/assets/images/Screenshot-opened.png)
-
-Side columns fixed to sides
-
-<img src="https://applications.w5.lt/health-table/assets/images/Screenshot-resized.png" alt="Table subrows" style="width: 700px" />
